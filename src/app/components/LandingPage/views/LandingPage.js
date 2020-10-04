@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
-import SignIn from "../../signin/views/SignIn";
+import SignIn from "../../signin/views/signIn";
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
