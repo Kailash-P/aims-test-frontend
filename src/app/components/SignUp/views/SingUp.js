@@ -11,6 +11,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import LandingPageFooter from '../../LandingPage/views/LandingPageFooter';
+import LandingPageHeader from '../../LandingPage/views/LandingPageHeader';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -36,9 +38,11 @@ export default function SignUp() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="lg">
+        <LandingPageHeader />
       <CssBaseline />
-      <div className={classes.paper}>
+      <Container maxWidth="xs">
+      <div className={classes.paper} >
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
@@ -118,6 +122,9 @@ export default function SignUp() {
           </Grid>
         </form>
       </div>
+      </Container>
+      <LandingPageFooter />
     </Container>
+  
   );
 }

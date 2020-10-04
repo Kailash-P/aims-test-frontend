@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
   footer: {
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.main,
     padding: theme.spacing(5, 0),
   },
 }));
