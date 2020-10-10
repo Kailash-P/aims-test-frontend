@@ -41,7 +41,7 @@ export default function PasswordResetSuccess() {
           <CheckCircleIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Password Reset Successfull
+          Password Reset Successful
         </Typography>
         <form className={classes.form} noValidate>
           <Typography className={classes.subtitle1} align='center'>
