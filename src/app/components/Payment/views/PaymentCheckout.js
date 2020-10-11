@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),
-  },
+  }
 }));
 
 const steps = ["Review your order", "Shipping address", "Payment details"];
