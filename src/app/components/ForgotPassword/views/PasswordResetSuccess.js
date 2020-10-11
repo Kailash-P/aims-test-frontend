@@ -36,35 +36,37 @@ export default function PasswordResetSuccess() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="lg">
+    <React.Fragment>
       <LandingPageHeader />
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <CheckCircleIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Password Reset Successful
-          </Typography>
-          <form className={classes.form} noValidate>
-            <Typography className={classes.subtitle1} align="center">
-              Please sign in to your account with new credentials
+      <Container component="main" maxWidth="lg">
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <div className={classes.paper}>
+            <Avatar className={classes.avatar}>
+              <CheckCircleIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Password Reset Successful
             </Typography>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              href="/"
-            >
-              Ok
-            </Button>
-          </form>
-        </div>
+            <form className={classes.form} noValidate>
+              <Typography className={classes.subtitle1} align="center">
+                Please sign in to your account with new credentials
+              </Typography>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+                href="/"
+              >
+                Ok
+              </Button>
+            </form>
+          </div>
+        </Container>
       </Container>
       <LandingPageFooter />
-    </Container>
+    </React.Fragment>
   );
 }

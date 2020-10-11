@@ -37,67 +37,69 @@ export default function ResetPassword() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="lg">
+    <React.Fragment>
       <LandingPageHeader />
-      <CssBaseline />
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="lg">
         <CssBaseline />
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Enter New Password
-          </Typography>
-          <form className={classes.form} noValidate>
-            <Typography className={classes.subtitle1} align="center">
-              Please enter new password for your account
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <div className={classes.paper}>
+            <Avatar className={classes.avatar}>
+              <LockIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              Enter New Password
             </Typography>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="newPassword"
-              label="New Password"
-              type="password"
-              id="newPassword"
-              autoComplete="Enter New password"
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="confirmPassword"
-              label="Confirm Password"
-              type="password"
-              id="confirmPassword"
-              autoComplete="Enter New password"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              href="/passwordResetSuccess"
-            >
-              Submit
-            </Button>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="disabled"
-              href="/"
-            >
-              Cancel
-            </Button>
-          </form>
-        </div>
+            <form className={classes.form} noValidate>
+              <Typography className={classes.subtitle1} align="center">
+                Please enter new password for your account
+              </Typography>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="newPassword"
+                label="New Password"
+                type="password"
+                id="newPassword"
+                autoComplete="Enter New password"
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                name="confirmPassword"
+                label="Confirm Password"
+                type="password"
+                id="confirmPassword"
+                autoComplete="Enter New password"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+                href="/passwordResetSuccess"
+              >
+                Submit
+              </Button>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="disabled"
+                href="/"
+              >
+                Cancel
+              </Button>
+            </form>
+          </div>
+        </Container>
       </Container>
       <LandingPageFooter />
-    </Container>
+    </React.Fragment>
   );
 }

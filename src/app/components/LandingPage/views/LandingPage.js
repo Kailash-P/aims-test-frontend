@@ -9,21 +9,7 @@ import SignIn from "../../signin/views/signIn";
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(3),
-    marginLeft: theme.spacing(0.1)
-  },
-  card: {
-    display: "flex",
-    backgroundImage: "url(/cover.png)",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    height: "35vw",
-  },
-  cardDetails: {
-    flex: 1,
-  },
-  cardMedia: {
-    width: 160,
+    marginLeft: theme.spacing(0.1),
   },
 }));
 
@@ -32,18 +18,16 @@ const LandingPage = () => {
 
   return (
     <React.Fragment>
+      <LandingPageHeader />
       <Container maxWidth="lg">
-        <LandingPageHeader />
         <Grid container spacing={5} className={classes.mainGrid}>
-          <Grid item xs={12} md={8}>
-           
-          </Grid>
+          <Grid item xs={12} md={8}></Grid>
           <Grid item xs={12} md={4}>
-              <SignIn></SignIn>
+            <SignIn></SignIn>
           </Grid>
         </Grid>
-        <LandingPageFooter />
       </Container>
+      <LandingPageFooter />
     </React.Fragment>
   );
 };
