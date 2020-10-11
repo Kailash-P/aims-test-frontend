@@ -12,12 +12,6 @@ const products = [
   { name: 'Store 3', desc: 'Users: 5 + 2*', price: '$6.51' }
 ];
 const addresses = ['1 CloudVille Street', 'CloudVilleTownShip', 'CloudVilleCity', '99999', 'INDIA'];
-const payments = [
-  { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'CloudVille' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
-];
 
 const useStyles = makeStyles((theme) => ({
   listItem: {
@@ -66,23 +60,6 @@ export default function Review() {
           <Typography gutterBottom>Cloud Ville</Typography>
           <Typography gutterBottom>{addresses.join(', ')}</Typography>
         </Grid>
-        {/* <Grid item container direction="column" xs={12} sm={6}>
-          <Typography variant="h6" gutterBottom className={classes.title}>
-            Payment details
-          </Typography>
-          <Grid container>
-            {payments.map((payment) => (
-              <React.Fragment key={payment.name}>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.name}</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography gutterBottom>{payment.detail}</Typography>
-                </Grid>
-              </React.Fragment>
-            ))}
-          </Grid>
-        </Grid> */}
       </Grid>
       <footer className={classes.footer}>
         <strong>* no of users</strong>
