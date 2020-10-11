@@ -6,18 +6,25 @@ import ResetPassword from "./app/components/ForgotPassword/views/ResetPassword";
 import VerificationCodeSent from "./app/components/ForgotPassword/views/VerificationCodeSent";
 import LandingPage from "./app/components/LandingPage/views/LandingPage";
 import SignUp from "./app/components/SignUp/views/SingUp";
+import Grid from '@material-ui/core/Grid';
 
 function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/signIn" component={LandingPage} />
-        <Route exact path="/signUp" component={SignUp} />
-        <Route exact path="/forgotPassword" component={ForgotPassword} />
-        <Route exact path="/verificationCodeSent" component={VerificationCodeSent} />
-        <Route exact path="/resetPassword" component={ResetPassword} />
-        <Route exact path="/passwordResetSuccess" component={PasswordResetSuccess} />
+      <Grid container spacing="3">
+        <Grid item  xs="1"></Grid>
+        <Grid item xs="10">
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/signIn" component={LandingPage} />
+          <Route exact path="/signUp" component={SignUp} />
+          <Route exact path="/forgotPassword" component={ForgotPassword} />
+          <Route exact path="/verificationCodeSent" component={VerificationCodeSent} />
+          <Route exact path="/resetPassword" component={ResetPassword} />
+          <Route exact path="/passwordResetSuccess" component={PasswordResetSuccess} />
+        </Grid>
+        <Grid item  xs="1"></Grid>
+      </Grid>    
       </Switch>
     </BrowserRouter>
   );
