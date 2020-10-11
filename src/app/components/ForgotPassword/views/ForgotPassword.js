@@ -37,54 +37,56 @@ export default function ForgotPassword() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="lg">
+    <React.Fragment>
       <LandingPageHeader />
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <EmailIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            We need to verify your identity
-          </Typography>
-          <form className={classes.form} noValidate>
-            <Typography className={classes.subtitle1} align="center">
-              Please enter your email id to receive password reset link
+      <Container component="main" maxWidth="lg">
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <div className={classes.paper}>
+            <Avatar className={classes.avatar}>
+              <EmailIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              We need to verify your identity
             </Typography>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              href="/verificationCodeSent"
-            >
-              Send Verification Link
-            </Button>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="disabled"
-              href="/"
-            >
-              Cancel
-            </Button>
-          </form>
-        </div>
+            <form className={classes.form} noValidate>
+              <Typography className={classes.subtitle1} align="center">
+                Please enter your email id to receive password reset link
+              </Typography>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+                href="/verificationCodeSent"
+              >
+                Send Verification Link
+              </Button>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="disabled"
+                href="/"
+              >
+                Cancel
+              </Button>
+            </form>
+          </div>
+        </Container>
       </Container>
       <LandingPageFooter />
-    </Container>
+    </React.Fragment>
   );
 }

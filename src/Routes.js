@@ -5,6 +5,7 @@ import PasswordResetSuccess from "./app/components/ForgotPassword/views/Password
 import ResetPassword from "./app/components/ForgotPassword/views/ResetPassword";
 import VerificationCodeSent from "./app/components/ForgotPassword/views/VerificationCodeSent";
 import LandingPage from "./app/components/LandingPage/views/LandingPage";
+import PaymentCheckout from "./app/components/Payment/views/PaymentCheckout";
 import SignUp from "./app/components/SignUp/views/SingUp";
 import Grid from '@material-ui/core/Grid';
 
@@ -22,9 +23,10 @@ function Routes() {
           <Route exact path="/verificationCodeSent" component={VerificationCodeSent} />
           <Route exact path="/resetPassword" component={ResetPassword} />
           <Route exact path="/passwordResetSuccess" component={PasswordResetSuccess} />
+          <Route exact path="/paymentCheckout" component={PaymentCheckout} />
         </Grid>
         <Grid item  xs="1"></Grid>
-      </Grid>    
+      </Grid>                   
       </Switch>
     </BrowserRouter>
   );
