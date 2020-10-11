@@ -8,8 +8,8 @@ import Grid from '@material-ui/core/Grid';
 
 const products = [
   { name: 'Store 1', desc: 'Users: 5', price: '$9.99' },
-  { name: 'Store 2', desc: 'Users: 1', price: '$3.45' },
-  { name: 'Store 3', desc: 'Users: 2', price: '$6.51' }
+  { name: 'Store 2', desc: 'Users: 5 + 1*', price: '$3.45' },
+  { name: 'Store 3', desc: 'Users: 5 + 2*', price: '$6.51' }
 ];
 const addresses = ['1 CloudVille Street', 'CloudVilleTownShip', 'CloudVilleCity', '99999', 'INDIA'];
 const payments = [
@@ -29,6 +29,11 @@ const useStyles = makeStyles((theme) => ({
   title: {
     marginTop: theme.spacing(2),
   },
+  footer: {
+    borderTop: `1px solid ${theme.palette.divider}`,
+    backgroundColor: theme.palette.background.main,
+    padding: theme.spacing(1, 0)
+  }
 }));
 
 export default function Review() {
@@ -56,12 +61,12 @@ export default function Review() {
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
-            Shipping
+            Invoice Address
           </Typography>
           <Typography gutterBottom>Cloud Ville</Typography>
           <Typography gutterBottom>{addresses.join(', ')}</Typography>
         </Grid>
-        <Grid item container direction="column" xs={12} sm={6}>
+        {/* <Grid item container direction="column" xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
             Payment details
           </Typography>
@@ -77,8 +82,11 @@ export default function Review() {
               </React.Fragment>
             ))}
           </Grid>
-        </Grid>
+        </Grid> */}
       </Grid>
+      <footer className={classes.footer}>
+        <strong>* no of users</strong>
+      </footer>
     </React.Fragment>
   );
 }

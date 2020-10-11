@@ -44,17 +44,17 @@ const useStyles = makeStyles((theme) => ({
   button: {
     marginTop: theme.spacing(3),
     marginLeft: theme.spacing(1),
-  }
+  },
 }));
 
-const steps = ["Review your order", "Shipping address", "Payment details"];
+const steps = ["Invoice address", "Review", "Payment details"];
 
 function getStepContent(step) {
   switch (step) {
     case 0:
-      return <Review />;
-    case 1:
       return <AddressForm />;
+    case 1:
+      return <Review />;
     case 2:
       return <PaymentForm />;
     default:
@@ -94,11 +94,15 @@ export default function Checkout() {
             {activeStep === steps.length ? (
               <React.Fragment>
                 <Typography variant="h5" gutterBottom>
-                  <strong style={{color:'green'}}>Thank you</strong>  for your order.
+                  <strong style={{ color: "green" }}>Thank you</strong> for your
+                  payment.
                 </Typography>
                 <Typography variant="subtitle1">
-                  Your order number is #123456. We have emailed your order
-                  confirmation, and will send you the credentials shortly.
+                  Your subscription is confirmed and invoice number is #123456.
+                </Typography>
+                <Typography variant="subtitle1">
+                  Please check your registered email for invoice and
+                  instructions.
                 </Typography>
               </React.Fragment>
             ) : (

@@ -1,11 +1,30 @@
-import React from 'react';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import React from "react";
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+
+const useStyles = makeStyles((theme) => ({
+  listItem: {
+    padding: theme.spacing(1, 0),
+  },
+  total: {
+    fontWeight: 700,
+  },
+  title: {
+    marginTop: theme.spacing(2),
+  },
+  footer: {
+    borderTop: `1px solid ${theme.palette.divider}`,
+    backgroundColor: theme.palette.background.main,
+    padding: theme.spacing(1, 0)
+  }
+}));
 
 export default function PaymentForm() {
+  const classes = useStyles();
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
@@ -13,7 +32,13 @@ export default function PaymentForm() {
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12} md={6}>
-          <TextField required id="cardName" label="Name on card" fullWidth autoComplete="cc-name" />
+          <TextField
+            required
+            id="cardName"
+            label="Name on card"
+            fullWidth
+            autoComplete="cc-name"
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
@@ -25,7 +50,13 @@ export default function PaymentForm() {
           />
         </Grid>
         <Grid item xs={12} md={6}>
-          <TextField required id="expDate" label="Expiry date" fullWidth autoComplete="cc-exp" />
+          <TextField
+            required
+            id="expDate"
+            label="Expiry date"
+            fullWidth
+            autoComplete="cc-exp"
+          />
         </Grid>
         <Grid item xs={12} md={6}>
           <TextField
@@ -44,6 +75,9 @@ export default function PaymentForm() {
           />
         </Grid>
       </Grid>
+      <footer className = {classes.footer}>
+        <strong>CVV will not be saved.</strong>
+      </footer>
     </React.Fragment>
   );
 }
