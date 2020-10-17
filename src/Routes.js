@@ -8,6 +8,7 @@ import LandingPage from "./app/components/LandingPage/views/LandingPage";
 import pricing from "./app/components/pricing/views/pricing";
 import PaymentCheckout from "./app/components/Payment/views/PaymentCheckout";
 import SignUp from "./app/components/SignUp/views/SingUp";
+import PurchaseSubscription from "./app/components/Subscription/views/PurchaseSubscription";
 import Grid from '@material-ui/core/Grid';
 
 function Routes() {
@@ -26,6 +27,7 @@ function Routes() {
           <Route exact path="/passwordResetSuccess" component={PasswordResetSuccess} />
           <Route exact path="/paymentCheckout" component={PaymentCheckout} />
           <Route exact path="/pricing" component={pricing} />
+          <Route exact path="/purchaseSubscription" component={PurchaseSubscription} />
         </Grid>
         <Grid item  xs="1"></Grid>
       </Grid>                   
