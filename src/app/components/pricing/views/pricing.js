@@ -164,6 +164,7 @@ export default function Pricing() {
 
     useEffect(() => {
       planCostCalCulator(plan);
+      // eslint-disable-next-line
    }, [users,plan]);
 
     const setStoresValue = (e,val) => {
