@@ -9,8 +9,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(3),
   },
   footer: {
+    marginTop: theme.spacing(10),
+    borderTop: `1px solid ${theme.palette.divider}`,
     backgroundColor: theme.palette.background.main,
-    padding: theme.spacing(5, 0),
+    padding: theme.spacing(2, 0)
   },
 }));
 

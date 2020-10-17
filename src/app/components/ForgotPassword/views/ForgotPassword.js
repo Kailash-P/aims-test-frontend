@@ -7,10 +7,12 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import EmailIcon from "@material-ui/icons/Email";
+import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
+import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(25),
+    marginTop: theme.spacing(10),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -27,58 +29,64 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
   subtitle1: {
-      fontSize: 13,
-    }
+    fontSize: 13,
+  },
 }));
 
 export default function ForgotPassword() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <EmailIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          We need to verify your identity
-        </Typography>
-        <form className={classes.form} noValidate>
-          <Typography className={classes.subtitle1} align='center'>
-            Please enter your email id to receive password reset link
-          </Typography>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            href="/verificationCodeSent"
-          >
-            Send Verification Link
-          </Button>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="disabled"
-            href="/"
-          >
-            Cancel
-          </Button>
-        </form>
-      </div>
-    </Container>
+    <React.Fragment>
+      <LandingPageHeader />
+      <Container component="main" maxWidth="lg">
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <div className={classes.paper}>
+            <Avatar className={classes.avatar}>
+              <EmailIcon />
+            </Avatar>
+            <Typography component="h1" variant="h5">
+              We need to verify your identity
+            </Typography>
+            <form className={classes.form} noValidate>
+              <Typography className={classes.subtitle1} align="center">
+                Please enter your email id to receive password reset link
+              </Typography>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+              />
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+                className={classes.submit}
+                href="/verificationCodeSent"
+              >
+                Send Verification Link
+              </Button>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="disabled"
+                href="/"
+              >
+                Cancel
+              </Button>
+            </form>
+          </div>
+        </Container>
+      </Container>
+      <LandingPageFooter />
+    </React.Fragment>
   );
 }
