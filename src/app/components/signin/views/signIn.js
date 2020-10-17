@@ -11,10 +11,10 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+// import "./src/css/appCss.css";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
-    marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -36,7 +36,7 @@ export default function SignIn() {
   const classes = useStyles();
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main"  justify="center" maxWidth="xs" style={{backgroundColor:"rgba(255,255,255,0.5)",backdropFilter:"blur(6px)",borderRadius:"15px",padding:"30px",marginTop:"auto"}} >
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>

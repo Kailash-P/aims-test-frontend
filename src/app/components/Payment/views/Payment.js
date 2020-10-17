@@ -7,6 +7,15 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 
 const useStyles = makeStyles((theme) => ({
+  Appcss: {
+    backgroundColor: "rgba(255,255,255,0.5)",
+    backdropFilter: "blur(6px)",
+    borderRadius: "15px",
+    padding: "30px",
+    marginTop: "10%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   listItem: {
     padding: theme.spacing(1, 0),
   },

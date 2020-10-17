@@ -9,21 +9,30 @@ import AppBar from "@material-ui/core/AppBar";
 const useStyles = makeStyles((theme) => ({
   appBar: {
     position: "relative",
+    backgroundColor:"rgba(246,246,246,0.5)",
+    top: '0',
+    width: '100%',
+    display: 'block',
+    transition: 'top 0.3s',
+    margin:'0',
+    padding:'0'
+    
   },
   toolbar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
+    // borderBottom: `1px solid ${theme.palette.divider}`,
   },
   toolbarTitle: {
     flex: 1,
+    
   },
 }));
 
 export default function LandingPageHeader() {
   const classes = useStyles();
   return (
-    <React.Fragment>
+    <>
       <CssBaseline />
-      <AppBar position="absolute" color="default" className={classes.appBar}>
+      <AppBar position="absolute" color="default" className={classes.appBar} m={2}>
         <Toolbar className={classes.toolbar}>
           <Typography
             component="h2"
@@ -41,6 +50,6 @@ export default function LandingPageHeader() {
           <Button size="small">Pricing</Button>
         </Toolbar>
       </AppBar>
-    </React.Fragment>
+    </>
   );
 }
