@@ -29,7 +29,7 @@ export default function LandingPageHeader() {
           AIMS
         </Typography>
         <Button variant="text" size="small">About</Button>
-        <Button size="small">Pricing</Button>
+        <Button href="/pricing" size="small">Pricing</Button>
       </Toolbar>
     </React.Fragment>
   );
