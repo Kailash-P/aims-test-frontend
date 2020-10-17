@@ -75,6 +75,8 @@ const useStyles = makeStyles((theme) => ({
       planswitcher:{
         paddingBottom: 12,
         paddingTop: 4,
+        justifyContent: 'center',
+        paddingLeft: 140,
       },
       showallplan:{
         paddingBottom: 12,
@@ -84,6 +86,13 @@ const useStyles = makeStyles((theme) => ({
       },cardpaidlisticon:{
         position: "relative",
         top: 8
+      },
+      gridlisticon:{
+        position: "relative",
+        left:25
+      },
+      plantable:{
+        backgroundColor: '#f2f2f2',
       }
 }));
 
@@ -126,13 +135,13 @@ const PrettoSlider = withStyles({
     },
     {
       id: 2,
-      title: 'AIMS PLUS',
+      title: 'AIMS Plus',
       price: 20,
       buttonText: 'Get started'
     },
     {
       id: 3,
-      title: 'AIMS PREMIUM',
+      title: 'AIMS Premium',
       price: 30,
       buttonText: 'Get started'
     }
@@ -171,7 +180,6 @@ export default function Pricing() {
       setusers(val*5);
     }
     const setUsersValue = (e,val) => {
-      debugger;
       if(val >= (stores * 5)){
         setusers(val);
        }else{
@@ -188,14 +196,12 @@ export default function Pricing() {
         setusers(500);
       }else{
         setstores(val);
-        if(users < (val*5)){
-          setusers(val*5);
-        }
+        setusers(val*5);
       }
   }
     const setUsersinputValue = (e) => {
       var val = e.target.value ? parseInt(e.target.value) :1;
-      if(val <5){
+      if(val <5 && stores === 1){
         setusers(5);
       }else if(val >500){
         setusers(500);
@@ -229,8 +235,7 @@ export default function Pricing() {
         <Container component="main" maxWidth="lg">
   <LandingPageHeader />
             <Container maxWidth="sm" component="main">
-            <div className={classes.planswitcher}>
-              <Tabs
+              <Tabs className={classes.planswitcher}
                 value={plan}
                 onChange={handleChange}
                 indicatorColor="primary"
@@ -239,9 +244,8 @@ export default function Pricing() {
                 aria-label="full width tabs example"
               >
                 <Tab label="Yearly" {...a11yProps(0)} />
-                <Tab label="2 Year" {...a11yProps(1)} />
+                <Tab label="2 Years" {...a11yProps(1)} />
               </Tabs>
-        </div>
           </Container>
             <Container maxWidth="lg" component="main">
                 <Grid container justify="center" alignItems="flex-end" >
@@ -274,7 +278,7 @@ export default function Pricing() {
                                     />
                             <CardContent>
                                 <div className={classes.cardPricing}>
-                                    <Typography component="h2" variant="h3">
+                                    <Typography component="h4" variant="h4">
                                     ${tier.id === 1 &&(
                                       starterprice
                                     )}
@@ -331,37 +335,38 @@ export default function Pricing() {
            
             {showallplan === true && (                    
             <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
+      <Table className={classes.plantable} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell></TableCell>
             <TableCell justify="center">AIMS Starter</TableCell>
-            <TableCell justify="center">AIMS PLUS&nbsp;</TableCell>
-            <TableCell justify="center">AIMS PREMIUM&nbsp;</TableCell>
+            <TableCell justify="center">AIMS Plus&nbsp;</TableCell>
+            <TableCell justify="center">AIMS Premium&nbsp;</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell justify="center"> {row.starter === true ? (
-                  <CheckSharpIcon style={{ color: green[500],paddingLeft: 31 }}></CheckSharpIcon>
-                ) : (
-                <CloseSharpIcon style={{ color: red[500],paddingLeft: 31  }}></CloseSharpIcon>
-                )}  </TableCell>
-              <TableCell justify="center"> {row.plus === true ? (
-                  <CheckSharpIcon style={{ color: green[500] ,paddingLeft: 31 }}></CheckSharpIcon>
-                ) : (
-                <CloseSharpIcon style={{ color: red[500] ,paddingLeft: 31 }}></CloseSharpIcon>
-                )}  </TableCell>
-             <TableCell justify="center"> {row.premium === true ? (
-                  <CheckSharpIcon style={{ color: green[500] ,paddingLeft: 31 }}></CheckSharpIcon>
-                ) : (
-                <CloseSharpIcon style={{ color: red[500],paddingLeft: 31  }}></CloseSharpIcon>
-                )}  </TableCell>
-            </TableRow>
+            
+          <TableRow key={row.name}>
+          <TableCell component="th" scope="row">
+            {row.name}
+          </TableCell>
+          <TableCell justify="center"> {row.starter === true ? (
+              <CheckSharpIcon className={classes.gridlisticon} style={{ color: green[500]}}></CheckSharpIcon>
+            ) : (
+            <CloseSharpIcon className={classes.gridlisticon}  style={{ color: red[500] }}></CloseSharpIcon>
+            )}  </TableCell>
+          <TableCell justify="center"> {row.plus === true ? (
+              <CheckSharpIcon className={classes.gridlisticon}  style={{ color: green[500] }}></CheckSharpIcon>
+            ) : (
+            <CloseSharpIcon className={classes.gridlisticon}  style={{ color: red[500] }}></CloseSharpIcon>
+            )}  </TableCell>
+          <TableCell justify="center"> {row.premium === true ? (
+              <CheckSharpIcon className={classes.gridlisticon}  style={{ color: green[500] }}></CheckSharpIcon>
+            ) : (
+            <CloseSharpIcon className={classes.gridlisticon} style={{ color: red[500] }}></CloseSharpIcon>
+            )}  </TableCell>
+          </TableRow>
           ))}
         </TableBody>
       </Table>
