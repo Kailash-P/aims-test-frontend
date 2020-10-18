@@ -1,7 +1,5 @@
 import React, { useState, useEffect }  from 'react'
 import {withStyles, makeStyles } from '@material-ui/core/styles';
-import LandingPageFooter from '../../LandingPage/views/LandingPageFooter';
-import LandingPageHeader from '../../LandingPage/views/LandingPageHeader';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -234,7 +232,6 @@ export default function Pricing() {
     
     return (
         <Container component="main" maxWidth="lg">
-  <LandingPageHeader />
             <Container maxWidth="sm" component="main">
               <Tabs className={classes.planswitcher}
                 value={plan}
@@ -373,7 +370,6 @@ export default function Pricing() {
       </Table>
     </TableContainer>
             )} 
-          <LandingPageFooter />
         </Container>
     );
 }

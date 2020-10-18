@@ -28,7 +28,7 @@ const theme = createMuiTheme({
           backgroundColor: 'rgb(255, 255, 255)',
           // background: 'linear-gradient(116.83deg, #FFFFFF 19.84%, #999999 95.21%)',
           backgroundImage: "url(./vector.png)",
-          // backgroundSize:"100%",
+           backgroundSize:"100%",
           backgroundRepeat:"no-repeat",
           // backgroundPosition: 'center center',
           // backgroundSize: 'contain',
@@ -61,6 +61,8 @@ function Routes() {
             <Route exact path="/resetPassword" component={ResetPassword} />
             <Route exact path="/passwordResetSuccess" component={PasswordResetSuccess} />
             <Route exact path="/paymentCheckout" component={PaymentCheckout} />
+            <Route exact path="/pricing" component={pricing} />
+            <Route exact path="/purchaseSubscription" component={PurchaseSubscription} />
           </Grid>
           <Grid item  xs={1}></Grid>
           </Grid> 

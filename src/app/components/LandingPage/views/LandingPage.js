@@ -21,8 +21,8 @@ const LandingPage = () => {
       <Container maxWidth="lg">
         <Grid container spacing={1} justify="center" alignItems="center" className={classes.mainGrid}>
           <Grid item xs={12} md={8} >
-            <h1 style={{margin:'0',fontSize:'128px',fontWeight:'100'}}>AIMS</h1>
-            <h4 style={{margin:'0',fontSize:'16px',fontWeight:'100'}}>Analytical Intelligent Management System</h4>
+            <h1 style={{margin:'0',fontSize:'200px',fontWeight:'500'}}>AIMS</h1>
+            <h4 style={{margin:'0',fontSize:'25px',fontWeight:'300'}}>Analytical Intelligent Management System</h4>
             {/* <h4 style={{margin:'0',fontSize:'48px',fontWeight:'100'}}></h4> */}
           </Grid>
           <Grid item xs={12} md={4}>

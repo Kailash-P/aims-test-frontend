@@ -18,8 +18,6 @@ import Box from "@material-ui/core/Box";
 import AddIcon from "@material-ui/icons/Add";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SaveIcon from "@material-ui/icons/Save";
-import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
-import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -68,7 +66,6 @@ export default function Subscription() {
   return (
     <React.Fragment>
       <Container component="main" maxWidth="lg">
-        <LandingPageHeader />
         <CssBaseline />
         <Box display="flex" flexDirection="row-reverse">
           <Box p={1}>
@@ -206,7 +203,6 @@ export default function Subscription() {
             Proceed to Pay
           </Button>
         </div>
-        <LandingPageFooter />
       </Container>
     </React.Fragment>
   );
