@@ -25,11 +25,11 @@ const LandingPage = () => {
         >
           <Grid item xs={12} md={8}>
             <h1 style={{ margin: "0", fontSize: "175px", fontWeight: "300" }}>
-              AIMS
-              <h4 style={{ margin: "0", fontSize: "25px", fontWeight: "300" }}>
-                Analytical Intuite Management System
-              </h4>
+              AIMS              
             </h1>
+            <h4 style={{ margin: "0", fontSize: "25px", fontWeight: "300" }}>
+                Analytical Intuitive Management System
+              </h4>
           </Grid>
           <Grid item xs={12} md={4}>
             <SignIn></SignIn>
