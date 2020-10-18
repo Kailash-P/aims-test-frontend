@@ -45,6 +45,8 @@ const useStyles = makeStyles((theme) => ({
         position:'relative',
         borderRadius:16,
         display:'flex',
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        backdropFilter: 'blur(6px)',
         flexDirection:'column',
         paddingTop: 4,
         paddingBottom: 4,
@@ -83,14 +85,15 @@ const useStyles = makeStyles((theme) => ({
         display:'flex',
       },cardpaidlisticon:{
         position: "relative",
-        top: 8
+        top: 8,
       },
       gridlisticon:{
         position: "relative",
-        left:25
+        left:25,
       },
       plantable:{
-        backgroundColor: '#f2f2f2',
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        backdropFilter: 'blur(6px)',
       }
 }));
 
@@ -247,7 +250,7 @@ export default function Pricing() {
           </Container>
             <Container maxWidth="lg" component="main">
                 <Grid container justify="center" alignItems="flex-end" >
-                <Card style={{backgroundColor: "#f2f2f2",border:"2px solid #f2f2f2"}} className={classes.card} >
+                <Card className={classes.card} >
                 <CardHeader title='Select Your plan'
                                     titleTypographyProps={{ align: 'center' }}
                                     subheaderTypographyProps={{
@@ -265,7 +268,7 @@ export default function Pricing() {
                 </CardContent>
                 </Card>
                     {tiers.map((tier) => (
-                        <Card style={{backgroundColor: "#f2f2f2",border:"2px solid #f2f2f2"}} className={classes.card}  key={tier.id} >
+                        <Card className={classes.card}  key={tier.id} >
                             <CardHeader title={tier.title}
                                     subheader={tier.subheader}
                                     titleTypographyProps={{ align: 'center' }}
@@ -332,11 +335,11 @@ export default function Pricing() {
             </div>
            
             {showallplan === true && (                    
-            <TableContainer component={Paper}>
-      <Table className={classes.plantable} aria-label="simple table">
+            <TableContainer component={Paper} className={classes.plantable}>
+      <Table aria-label="simple table">
         <TableHead>
-          <TableRow>
-            <TableCell></TableCell>
+          <TableRow >
+            <TableCell ></TableCell>
             <TableCell justify="center">AIMS Starter</TableCell>
             <TableCell justify="center">AIMS Plus&nbsp;</TableCell>
             <TableCell justify="center">AIMS Premium&nbsp;</TableCell>

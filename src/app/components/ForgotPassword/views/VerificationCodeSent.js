@@ -18,7 +18,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   paper: {
-    // marginTop: theme.spacing(10),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -44,7 +43,6 @@ export default function VerificationCodeSent() {
 
   return (
     <React.Fragment >
-      {/* <LandingPageHeader /> */}
       <Container component="main" maxWidth="lg"  >
       <CssBaseline />
         <Container component="main" maxWidth="xs" style={{backgroundColor: "rgba(255,255,255,0.5)",
@@ -79,7 +77,6 @@ export default function VerificationCodeSent() {
           </div>
         </Container>
       </Container>
-      {/* <LandingPageFooter /> */}
     </React.Fragment>
   );
 }

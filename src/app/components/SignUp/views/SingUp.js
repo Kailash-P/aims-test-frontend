@@ -19,12 +19,11 @@ const useStyles = makeStyles((theme) => ({
     backdropFilter: "blur(6px)",
     borderRadius: "15px",
     padding: "30px",
-    marginTop: "10%",
+    marginTop: "5%",
     justifyContent: "center",
     alignItems: "center",
   },
   paper: {
-    // marginTop: theme.spacing(8),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -50,7 +49,7 @@ export default function SignUp() {
       
       <Container component="main" maxWidth="lg">
         <CssBaseline />
-        <Container maxWidth="xs" style={{backgroundColor:"rgba(255,255,255,0.8)",backdropFilter:"blur(2px)",borderRadius:"15px",padding:"30px",marginTop:"80px"}}>
+        <Container maxWidth="xs" className={classes.Appcss} >
           <div className={classes.paper}>
             <Avatar className={classes.avatar}>
               <AccountCircleIcon />

@@ -7,7 +7,6 @@ import SignIn from "../../signin/views/signIn";
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
     marginTop: theme.spacing(6),
-    // marginLeft: theme.spacing(3),
   },
 }));
 
@@ -23,7 +22,6 @@ const LandingPage = () => {
           <Grid item xs={12} md={8} >
             <h1 style={{margin:'0',fontSize:'200px',fontWeight:'500'}}>AIMS</h1>
             <h4 style={{margin:'0',fontSize:'25px',fontWeight:'300'}}>Analytical Intelligent Management System</h4>
-            {/* <h4 style={{margin:'0',fontSize:'48px',fontWeight:'100'}}></h4> */}
           </Grid>
           <Grid item xs={12} md={4}>
             <SignIn></SignIn>

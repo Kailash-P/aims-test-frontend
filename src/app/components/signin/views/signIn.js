@@ -11,9 +11,17 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-// import "./src/css/appCss.css";
 
 const useStyles = makeStyles((theme) => ({
+  Appcss: {
+    backgroundColor: "rgba(255,255,255,0.5)",
+    backdropFilter: "blur(6px)",
+    borderRadius: "15px",
+    padding: "30px",
+    marginTop: "10%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   paper: {
     display: 'flex',
     flexDirection: 'column',
@@ -36,7 +44,7 @@ export default function SignIn() {
   const classes = useStyles();
 
   return (
-    <Container component="main"  justify="center" maxWidth="xs" style={{backgroundColor:"rgba(255,255,255,0.5)",backdropFilter:"blur(6px)",borderRadius:"15px",padding:"30px",marginTop:"auto"}} >
+    <Container component="main" maxWidth="xs" className={classes.Appcss} >
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -52,7 +60,7 @@ export default function SignIn() {
             required
             fullWidth
             id="email"
-            label="Email Address"
+            label="User ID"
             name="email"
             autoComplete="email"
             autoFocus
@@ -79,7 +87,7 @@ export default function SignIn() {
             color="primary"
             className={classes.submit}
           >
-            Sign In
+            Log In
           </Button>
           <Grid container>
             <Grid item xs>

@@ -4,22 +4,8 @@ import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-// import { makeStyles } from "@material-ui/core/styles";
-
-// const useStyles = makeStyles((theme) => ({
-//   Appcss: {
-//     backgroundColor: "rgba(255,255,255,0.5)",
-//     backdropFilter: "blur(6px)",
-//     borderRadius: "15px",
-//     padding: "30px",
-//     marginTop: "10%",
-//     justifyContent: "center",
-//     alignItems: "center",
-//   }
-// }));
 
 export default function AddressForm() {
-  // const classes = useStyles();
   return (
     <React.Fragment>
       <Typography variant="h6" gutterBottom>

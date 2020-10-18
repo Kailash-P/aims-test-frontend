@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   paper: {
-    // marginTop: theme.spacing(10),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -46,10 +45,9 @@ export default function ResetPassword() {
 
   return (
     <React.Fragment>
-      {/* <LandingPageHeader /> */}
       <Container component="main" maxWidth="lg">
         <CssBaseline />
-        <Container component="main" maxWidth="xs" classname={classes.Appcss}>
+        <Container component="main" maxWidth="xs" className={classes.Appcss}>
           <CssBaseline />
           <div className={classes.paper}>
             <Avatar className={classes.avatar}>
@@ -107,7 +105,6 @@ export default function ResetPassword() {
           </div>
         </Container>
       </Container>
-      {/* <LandingPageFooter /> */}
     </React.Fragment>
   );
 }

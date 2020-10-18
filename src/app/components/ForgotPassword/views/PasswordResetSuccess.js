@@ -19,18 +19,15 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   paper: {
-    // marginTop: theme.spacing(10),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
   avatar: {
-    // margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    // marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -45,7 +42,6 @@ export default function PasswordResetSuccess() {
 
   return (
     <React.Fragment>
-      {/* <LandingPageHeader /> */}
       <Container component="main" maxWidth="lg" >
       <CssBaseline />
         <Container component="main" maxWidth="xs" style={{backgroundColor: "rgba(255,255,255,0.5)",
@@ -81,7 +77,6 @@ export default function PasswordResetSuccess() {
           </div>
         </Container>
       </Container>
-      {/* <LandingPageFooter /> */}
     </React.Fragment>
   );
 }
