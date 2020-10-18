@@ -12,7 +12,6 @@ import LandingPageHeader from "./app/components/LandingPage/views/LandingPageHea
 import LandingPageFooter from "./app/components/LandingPage/views/LandingPageFooter";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import PurchaseSubscription from "./app/components/Subscription/views/PurchaseSubscription";
-import Grid from '@material-ui/core/Grid';
 
 const theme = createMuiTheme({
   palette: {
@@ -26,17 +25,14 @@ const theme = createMuiTheme({
       '@global': {
         body: {
           backgroundColor: 'rgb(255, 255, 255)',
-          // background: 'linear-gradient(116.83deg, #FFFFFF 19.84%, #999999 95.21%)',
           backgroundImage: "url(./vector.png)",
-           backgroundSize:"100%",
+          backgroundSize:"cover",
           backgroundRepeat:"no-repeat",
-          // backgroundPosition: 'center center',
-          // backgroundSize: 'contain',
+          backgroundPosition: 'left center',
           backgroundAttachment: 'fixed',
+          height:"auto",
+          width:"auto"
         
-        },
-        palette: {
-          // primary: 'linear-gradient(137deg, rgba(255,97,214,1) 0%, rgba(252,245,0,1) 100%)'
         },
       },
     },
@@ -50,9 +46,6 @@ function Routes() {
       <LandingPageHeader />
         <Switch>
         <React.Fragment>
-        <Grid container spacing={3}>
-          <Grid item  xs={1}></Grid>
-          <Grid item xs={10} ma={0} > 
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/signIn" component={LandingPage} />
             <Route exact path="/signUp" component={SignUp} />
@@ -63,9 +56,6 @@ function Routes() {
             <Route exact path="/paymentCheckout" component={PaymentCheckout} />
             <Route exact path="/pricing" component={pricing} />
             <Route exact path="/purchaseSubscription" component={PurchaseSubscription} />
-          </Grid>
-          <Grid item  xs={1}></Grid>
-          </Grid> 
         </React.Fragment>                 
         </Switch>
         <LandingPageFooter />

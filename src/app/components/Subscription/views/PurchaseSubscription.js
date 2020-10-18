@@ -20,6 +20,15 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import SaveIcon from "@material-ui/icons/Save";
 
 const useStyles = makeStyles((theme) => ({
+  Appcss: {
+    backgroundColor: "rgba(255,255,255,0.5)",
+    backdropFilter: "blur(6px)",
+    borderRadius: "15px",
+    padding: "30px",
+    marginTop: "5%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   root: {
     width: "100%",
   },
@@ -65,9 +74,9 @@ export default function Subscription() {
 
   return (
     <React.Fragment>
-      <Container component="main" maxWidth="lg">
+      <Container component="main" maxWidth="lg" style={{marginTop: "2%"}} >
         <CssBaseline />
-        <Box display="flex" flexDirection="row-reverse">
+        <Box display="flex" flexDirection="row-reverse" >
           <Box p={1}>
             <Button
               variant="contained"
@@ -86,8 +95,8 @@ export default function Subscription() {
             </Typography>
           </Box>
         </Box>
-        <div className={classes.paper}>
-          <Accordion defaultExpanded>
+        <div className={classes.paper} >
+          <Accordion defaultExpanded className={classes.Appcss}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1c-content"
