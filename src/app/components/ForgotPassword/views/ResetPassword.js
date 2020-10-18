@@ -7,12 +7,19 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import LockIcon from "@material-ui/icons/Lock";
-import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
-import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
+
 
 const useStyles = makeStyles((theme) => ({
+  Appcss: {
+    backgroundColor: "rgba(255,255,255,0.5)",
+    backdropFilter: "blur(6px)",
+    borderRadius: "15px",
+    padding: "30px",
+    marginTop: "10%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   paper: {
-    marginTop: theme.spacing(10),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -38,10 +45,9 @@ export default function ResetPassword() {
 
   return (
     <React.Fragment>
-      <LandingPageHeader />
       <Container component="main" maxWidth="lg">
         <CssBaseline />
-        <Container component="main" maxWidth="xs">
+        <Container component="main" maxWidth="xs" className={classes.Appcss}>
           <CssBaseline />
           <div className={classes.paper}>
             <Avatar className={classes.avatar}>
@@ -99,7 +105,6 @@ export default function ResetPassword() {
           </div>
         </Container>
       </Container>
-      <LandingPageFooter />
     </React.Fragment>
   );
 }

@@ -6,23 +6,28 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
-import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
+
 
 const useStyles = makeStyles((theme) => ({
+  Appcss: {
+    backgroundColor: "rgba(255,255,255,0.5)",
+    backdropFilter: "blur(6px)",
+    borderRadius: "15px",
+    padding: "30px",
+    marginTop: "10%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   paper: {
-    marginTop: theme.spacing(10),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
   },
   avatar: {
-    margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -37,9 +42,15 @@ export default function PasswordResetSuccess() {
 
   return (
     <React.Fragment>
-      <LandingPageHeader />
-      <Container component="main" maxWidth="lg">
-        <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="lg" >
+      <CssBaseline />
+        <Container component="main" maxWidth="xs" style={{backgroundColor: "rgba(255,255,255,0.5)",
+    backdropFilter: "blur(6px)",
+    borderRadius: "15px",
+    padding: "30px",
+    marginTop: "10%",
+    justifyContent: "center",
+    alignItems: "center"}}>
           <CssBaseline />
           <div className={classes.paper}>
             <Avatar className={classes.avatar}>
@@ -66,7 +77,6 @@ export default function PasswordResetSuccess() {
           </div>
         </Container>
       </Container>
-      <LandingPageFooter />
     </React.Fragment>
   );
 }

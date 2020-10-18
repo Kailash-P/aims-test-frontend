@@ -7,12 +7,18 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import EmailIcon from "@material-ui/icons/Email";
-import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
-import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
 
 const useStyles = makeStyles((theme) => ({
+  Appcss: {
+    backgroundColor: "rgba(255,255,255,0.5)",
+    backdropFilter: "blur(6px)",
+    borderRadius: "15px",
+    padding: "30px",
+    marginTop: "10%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   paper: {
-    marginTop: theme.spacing(10),
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -38,55 +44,61 @@ export default function ForgotPassword() {
 
   return (
     <React.Fragment>
-      <LandingPageHeader />
-      <Container component="main" maxWidth="lg">
-        <Container component="main" maxWidth="xs">
-          <CssBaseline />
-          <div className={classes.paper}>
-            <Avatar className={classes.avatar}>
-              <EmailIcon />
-            </Avatar>
-            <Typography component="h1" variant="h5">
-              We need to verify your identity
-            </Typography>
-            <form className={classes.form} noValidate>
-              <Typography className={classes.subtitle1} align="center">
-                Please enter your email id to receive password reset link
+      <Container component="main" justifycontent="center">
+        <div className="Containerstyle">
+          <Container
+            direction="column"
+            component="main"
+            justifycontent="center"
+            maxWidth="xs"
+            className={classes.Appcss}
+          >
+            <CssBaseline />
+            <div className={classes.paper}>
+              <Avatar className={classes.avatar}>
+                <EmailIcon />
+              </Avatar>
+              <Typography component="h1" variant="h5">
+                We need to verify your identity
               </Typography>
-              <TextField
-                variant="outlined"
-                margin="normal"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-              />
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-                href="/verificationCodeSent"
-              >
-                Send Verification Link
-              </Button>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="disabled"
-                href="/"
-              >
-                Cancel
-              </Button>
-            </form>
-          </div>
-        </Container>
+              <form className={classes.form} noValidate>
+                <Typography className={classes.subtitle1} align="center">
+                  Please enter your email id to receive password reset link
+                </Typography>
+                <TextField
+                  variant="outlined"
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                  autoComplete="email"
+                />
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                  className={classes.submit}
+                  href="/verificationCodeSent"
+                >
+                  Send Verification Link
+                </Button>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color="default"
+                  href="/"
+                >
+                  Cancel
+                </Button>
+              </form>
+            </div>
+          </Container>
+        </div>
       </Container>
-      <LandingPageFooter />
     </React.Fragment>
   );
 }

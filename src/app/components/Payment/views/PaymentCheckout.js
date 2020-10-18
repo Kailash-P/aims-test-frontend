@@ -10,10 +10,17 @@ import Typography from "@material-ui/core/Typography";
 import AddressForm from "./PaymentAddress";
 import PaymentForm from "./Payment";
 import Review from "./PaymentReview";
-import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
-import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
 
 const useStyles = makeStyles((theme) => ({
+  Appcss: {
+    backgroundColor: "rgba(255,255,255,0.5)",
+    backdropFilter: "blur(6px)",
+    borderRadius: "15px",
+    padding: "30px",
+    marginTop: "10%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   layout: {
     width: "auto",
     marginLeft: theme.spacing(2),
@@ -22,20 +29,17 @@ const useStyles = makeStyles((theme) => ({
       width: 600,
       marginLeft: "auto",
       marginRight: "auto",
+      position: "relative",
     },
   },
   paper: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
     padding: theme.spacing(2),
     [theme.breakpoints.up(600 + theme.spacing(3) * 2)]: {
-      marginTop: theme.spacing(6),
-      marginBottom: theme.spacing(6),
       padding: theme.spacing(3),
     },
   },
   stepper: {
-    padding: theme.spacing(3, 0, 5),
+    background: "none",
   },
   buttons: {
     display: "flex",
@@ -77,9 +81,8 @@ export default function Checkout() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <LandingPageHeader />
-      <main className={classes.layout}>
-        <Paper className={classes.paper}>
+      <main className={classes.layout} >
+        <Paper className={(classes.paper,classes.Appcss)} >
           <Typography component="h1" variant="h4" align="center">
             Payment
           </Typography>
@@ -128,7 +131,6 @@ export default function Checkout() {
           </React.Fragment>
         </Paper>
       </main>
-      <LandingPageFooter />
     </React.Fragment>
   );
 }

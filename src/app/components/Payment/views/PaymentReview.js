@@ -14,6 +14,15 @@ const products = [
 const addresses = ['1 CloudVille Street', 'CloudVilleTownShip', 'CloudVilleCity', '99999', 'INDIA'];
 
 const useStyles = makeStyles((theme) => ({
+  Appcss: {
+    backgroundColor: "rgba(255,255,255,0.5)",
+    backdropFilter: "blur(6px)",
+    borderRadius: "15px",
+    padding: "30px",
+    marginTop: "10%",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   listItem: {
     padding: theme.spacing(1, 0),
   },
