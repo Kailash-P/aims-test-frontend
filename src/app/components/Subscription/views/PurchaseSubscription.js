@@ -82,7 +82,7 @@ const storeObj =
 export default function Subscription() {
   const classes = useStyles();
   const [storeList, setStoreList] = useState([storeObj]);
-  const [numberOfStore, setNumberOfStore] = useState(2);
+  const numberOfStore = 2
   var maxRowID;
 
   function handleChange(event, index) {
