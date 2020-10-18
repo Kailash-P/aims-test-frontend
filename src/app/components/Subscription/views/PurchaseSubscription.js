@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import clsx from "clsx";
@@ -51,11 +51,13 @@ const useStyles = makeStyles((theme) => ({
     flexBasis: "50%",
   },
   helper: {
-    padding: theme.spacing(1, 5),
+    paddingLeft:theme.spacing(2),
+    paddingTop:theme.spacing(2)
   },
   paper: {
     display: "flex",
     flexDirection: "column",
+    paddingTop:theme.spacing(1)
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -69,32 +71,85 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const storeObj =
+  {
+    id: 1,
+    storeName: '',
+    storeAlias: '',
+    storeTaxNumber: '',
+    storeLandline:'',
+    street1:'', 
+    street2:'', 
+    country:'', 
+    state:'', 
+    city:'', 
+    zip:''
+  }
+  
 export default function Subscription() {
   const classes = useStyles();
+  const [storeList, setStoreList] = useState([storeObj]);
+  const numberOfStore = 2
+  var maxRowID;
+
+  function handleChange(event, index) {
+        let newArr = [...storeList];
+        let item = newArr[index];
+        item = {...item, [event.target.name]: event.target.value};
+        newArr[index] = item;
+        setStoreList(newArr);
+  }
+
+const AddStore = ()=>{
+    maxRowID = 0;
+    storeList.map(function(obj){     
+    if (obj.id > maxRowID) {maxRowID = obj.id};    
+    return maxRowID;
+    });
+     storeObj.id = (maxRowID+1);
+     setStoreList(storeList.concat([storeObj]));    
+  }
+
+  const RemoveStore = (e,index)=>{
+    if(storeList && storeList.length > 1){
+    const list = [...storeList];
+    list.splice(index, 1);
+    setStoreList(list);
+    }
+  }
 
   return (
     <React.Fragment>
       <Container component="main" maxWidth="lg" style={{marginTop: "2%"}} >
         <CssBaseline />
+        <Box display="flex" flexDirection="row-reverse">
+        {storeList && storeList.length < numberOfStore &&(
         <Box display="flex" flexDirection="row-reverse" >
           <Box p={1}>
             <Button
+             onClick={AddStore}
               variant="contained"
               color="primary"
+              size="medium"
               className={classes.button}
               startIcon={<AddIcon />}
             >
-              Add Store
+              Add Store &nbsp;&nbsp;
             </Button>
 
           </Box>
+           )}
           <Box p={1}>
-           
+            
             <Typography component="h1" variant="h5">
-              No. of Stores to Add : 3
+              No. of Stores to Add : {(numberOfStore - (storeList.length))}
             </Typography>
           </Box>
         </Box>
+        {storeList.map((store,i) => (
+           <div key={i}>
+        <div className={classes.paper}>
+          <Accordion defaultExpanded>
         <div className={classes.paper} >
           <Accordion defaultExpanded className={classes.Appcss}>
             <AccordionSummary
@@ -105,6 +160,9 @@ export default function Subscription() {
               <div className={classes.column}>
                 <Typography component="h1" variant="h5">
                   Store
+                  {store.storeName &&(" - " +
+                    store.storeName
+                  )}
                 </Typography>
               </div>
             </AccordionSummary>
@@ -114,67 +172,158 @@ export default function Subscription() {
                   <Grid container spacing={2}>
                     <Grid item xs={12}>
                       <TextField
-                        autoComplete="sname"
+                        id={"storeName_" + store.id}
                         name="storeName"
+                        value={store.storeName}
+                        autoComplete="sname"
                         variant="outlined"
                         required
                         fullWidth
-                        id="storeName"
                         label="Store Name"
                         autoFocus
+                        onChange={(event) => {
+                          handleChange(event, i)
+                      }}
                       />
                     </Grid>
                     <Grid item xs={12}>
-                      <TextField
+                    <TextField
+                        id={"street1_" + store.id}
+                        name="street1"
+                        autoComplete="street1"
+                        value={store.street1}
                         variant="outlined"
                         required
                         fullWidth
-                        id="storeAlias"
-                        label="Store Alias"
-                        name="storeAlias"
-                        autoComplete="salias"
+                        label="Street1"
+                        onChange={(event) => {
+                          handleChange(event, i)
+                      }}
                       />
                     </Grid>
                     <Grid item xs={12}>
-                      <TextField
+                    <TextField
+                        id={"country" + store.id}
+                        name="country"
+                        autoComplete="country"
+                        value={store.country}
                         variant="outlined"
                         required
-                        multiline
-                        rows={4}
                         fullWidth
-                        name="storeAddress"
-                        label="Store Address"
-                        type="textarea"
-                        id="storeAddress"
-                        autoComplete="sAddress"
+                        label="Country"
+                        onChange={(event) => {
+                          handleChange(event, i)
+                        }}
                       />
                     </Grid>
+                    <Grid item xs={12}>
+                    <TextField
+                        id={"city" + store.id}
+                        name="city"
+                        autoComplete="city"
+                        value={store.city}
+                        variant="outlined"
+                        required
+                        fullWidth
+                        label="City"
+                        onChange={(event) => {
+                          handleChange(event, i)
+                        }}
+                      />
+                    </Grid>  
+                    <Grid item xs={12}>
+                      <TextField
+                        id={"storeLandline" + store.id}
+                        name="storeLandline"
+                        autoComplete="storeLandline"
+                        value={store.storeLandline}
+                        variant="outlined"
+                        required
+                        fullWidth
+                        label="Store Landline"
+                        onChange={(event) => {
+                          handleChange(event, i)
+                        }}
+                      />
+                    </Grid>            
                   </Grid>
                 </form>
               </div>
               <div className={clsx(classes.column, classes.helper)}>
-                <form className={classes.form}>
+                <form  className={classes.form}>
                   <Grid container spacing={2}>
-                    <Grid item xs={12}>
+                  <Grid item xs={12}>
                       <TextField
-                        autoComplete="slandline"
-                        name="storeLandline"
+                        id={"storeAlias" + store.id}
+                        name="storeAlias"
+                        autoComplete="storeAlias"
+                        value={store.storeAlias}
                         variant="outlined"
                         required
                         fullWidth
-                        id="storeLandline"
-                        label="Store Landline"
+                        label="Store Alias"
+                        onChange={(event) => {
+                          handleChange(event, i)
+                        }}
                       />
                     </Grid>
                     <Grid item xs={12}>
                       <TextField
+                        id={"street2" + store.id}
+                        name="street2"
+                        autoComplete="storeAlias"
+                        value={store.street2}
+                        variant="outlined"
+                        fullWidth
+                        label="Street2"
+                        onChange={(event) => {
+                          handleChange(event, i)
+                        }}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                    <TextField
+                        id={"state" + store.id}
+                        name="state"
+                        autoComplete="state"
+                        value={store.state}
                         variant="outlined"
                         required
                         fullWidth
-                        id="storeTaxIdNumber"
-                        label="Store TaxNumber"
-                        name="storeTaxIdNumber"
-                        autoComplete="sTaxIdNumber"
+                        label="State"
+                        onChange={(event) => {
+                          handleChange(event, i)
+                        }}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                    <TextField
+                        id={"zip" + store.id}
+                        name="zip"
+                        autoComplete="zip"
+                        value={store.zip}
+                        variant="outlined"
+                        required
+                        fullWidth
+                        label="Zip"
+                        onChange={(event) => {
+                          handleChange(event, i)
+                        }}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                      id={"storeTaxNumber" + store.id}
+                      name="storeTaxNumber"
+                      autoComplete="storeTaxNumber"
+                      value={store.storeTaxNumber}
+                      variant="outlined"
+                      required
+                      fullWidth
+                      label="Store TaxNumber"
+                      onChange={(event) => {
+                        handleChange(event, i)
+                      }}
                       />
                     </Grid>
                     <Grid item xs={12}></Grid>
@@ -182,6 +331,7 @@ export default function Subscription() {
                 </form>
               </div>
             </AccordionDetails>
+            
             <Divider />
             <AccordionActions>
               <Fab
@@ -192,7 +342,10 @@ export default function Subscription() {
               >
                 <SaveIcon />
               </Fab>
+              {storeList && storeList.length > 1 &&(
               <Fab
+                id= {store.id}
+                onClick={(e) => {RemoveStore(e,i)}}
                 size="small"
                 color="secondary"
                 aria-label="delete"
@@ -200,8 +353,25 @@ export default function Subscription() {
               >
                 <DeleteIcon />
               </Fab>
+              )}
             </AccordionActions>
           </Accordion>
+          </div>
+          </div>
+        ))}
+          <Box display="flex" flexDirection="row-reverse">
+          <Box p={1}>
+            <Button
+             type="submit"
+             size="medium"
+             variant="contained"
+             color="primary"
+             className={classes.submit}
+             href="/paymentCheckout"
+            > Proceed to Pay</Button>
+            </Box>
+          </Box>
+        <LandingPageFooter />
           <Button
             type="submit"
             variant="contained"
@@ -216,3 +386,4 @@ export default function Subscription() {
     </React.Fragment>
   );
 }
+
