@@ -13,6 +13,7 @@ import LandingPageFooter from "./app/components/LandingPage/views/LandingPageFoo
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import PurchaseSubscription from "./app/components/Subscription/views/PurchaseSubscription";
 import Grid from '@material-ui/core/Grid';
+import AimsChatBot from "./app/components/AimsChatBot/views/AimsChatBot";
 
 const theme = createMuiTheme({
   palette: {
@@ -69,6 +70,7 @@ function Routes() {
         </React.Fragment>                 
         </Switch>
         <LandingPageFooter />
+        <AimsChatBot/>
       </MuiThemeProvider >  
     </BrowserRouter>
   );
