@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/aims-test-frontend/static/js/main.2c4ebfe1.chunk.js",
+    "main.js.map": "/aims-test-frontend/static/js/main.2c4ebfe1.chunk.js.map",
+    "runtime-main.js": "/aims-test-frontend/static/js/runtime-main.17f9f9ec.js",
+    "runtime-main.js.map": "/aims-test-frontend/static/js/runtime-main.17f9f9ec.js.map",
+    "static/js/2.33e9c565.chunk.js": "/aims-test-frontend/static/js/2.33e9c565.chunk.js",
+    "static/js/2.33e9c565.chunk.js.map": "/aims-test-frontend/static/js/2.33e9c565.chunk.js.map",
+    "index.html": "/aims-test-frontend/index.html",
+    "precache-manifest.75f2058bfdcdc1c4ec3b943eb3c1a5c3.js": "/aims-test-frontend/precache-manifest.75f2058bfdcdc1c4ec3b943eb3c1a5c3.js",
+    "service-worker.js": "/aims-test-frontend/service-worker.js",
+    "static/js/2.33e9c565.chunk.js.LICENSE.txt": "/aims-test-frontend/static/js/2.33e9c565.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.17f9f9ec.js",
+    "static/js/2.33e9c565.chunk.js",
+    "static/js/main.2c4ebfe1.chunk.js"
+  ]
+}
