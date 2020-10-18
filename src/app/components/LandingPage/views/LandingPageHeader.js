@@ -47,7 +47,7 @@ export default function LandingPageHeader() {
           <Button variant="text" size="small">
             About
           </Button>
-          <Button size="small">Pricing</Button>
+          <Button href="/pricing" size="small">Pricing</Button>
         </Toolbar>
       </AppBar>
     </>
