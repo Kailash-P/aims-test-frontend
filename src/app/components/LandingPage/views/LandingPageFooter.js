@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     borderTop: `1px solid ${theme.palette.divider}`,
     padding: theme.spacing(3, 2),
     position:'sticky',
-    marginTop:'calc(2% + 75px)',
+    marginTop:'calc(5% + 75px)',
     bottom: '0'
   },
 }));
