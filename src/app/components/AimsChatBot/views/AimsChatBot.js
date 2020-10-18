@@ -3,9 +3,9 @@ import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from 'styled-components';
 
 const AimsChatBot = (props) => {
-  const config = {
-    width: "300px",
-    height: "400px",
+  const chatbotStyle = {
+    width: "auto",
+    height: "auto",
     floating: true,
   };
 
@@ -39,7 +39,7 @@ const AimsChatBot = (props) => {
         recognitionEnable={true}
         
         steps={steps}
-        {...config}
+        {...chatbotStyle}
       />
     </ThemeProvider>
   );
