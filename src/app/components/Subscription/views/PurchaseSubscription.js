@@ -18,7 +18,6 @@ import Box from "@material-ui/core/Box";
 import AddIcon from "@material-ui/icons/Add";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SaveIcon from "@material-ui/icons/Save";
-
 const useStyles = makeStyles((theme) => ({
   Appcss: {
     backgroundColor: "rgba(255,255,255,0.5)",
@@ -120,11 +119,10 @@ const AddStore = ()=>{
 
   return (
     <React.Fragment>
-      <Container component="main" maxWidth="lg" style={{marginTop: "2%"}} >
+      <Container component="main" maxWidth="lg">
         <CssBaseline />
         <Box display="flex" flexDirection="row-reverse">
         {storeList && storeList.length < numberOfStore &&(
-        <Box display="flex" flexDirection="row-reverse" >
           <Box p={1}>
             <Button
              onClick={AddStore}
@@ -149,9 +147,7 @@ const AddStore = ()=>{
         {storeList.map((store,i) => (
            <div key={i}>
         <div className={classes.paper}>
-          <Accordion defaultExpanded>
-        <div className={classes.paper} >
-          <Accordion defaultExpanded className={classes.Appcss}>
+          <Accordion className={classes.Appcss} defaultExpanded>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1c-content"
@@ -371,19 +367,7 @@ const AddStore = ()=>{
             > Proceed to Pay</Button>
             </Box>
           </Box>
-        <LandingPageFooter />
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            href="/paymentCheckout"
-          >
-            Proceed to Pay
-          </Button>
-        </div>
       </Container>
     </React.Fragment>
   );
 }
-
