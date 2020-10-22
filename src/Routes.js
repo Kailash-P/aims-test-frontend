@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import ForgotPassword from "./app/components/ForgotPassword/views/ForgotPassword";
 import PasswordResetSuccess from "./app/components/ForgotPassword/views/PasswordResetSuccess";
 import ResetPassword from "./app/components/ForgotPassword/views/ResetPassword";
@@ -42,7 +42,7 @@ const theme = createMuiTheme({
 
 function Routes() {
   return (    
-    <BrowserRouter>
+    <HashRouter basename="/">
     <MuiThemeProvider theme={theme}>
       <LandingPageHeader />
         <Switch>
@@ -62,7 +62,7 @@ function Routes() {
         <LandingPageFooter />
         <AimsChatBot/>
       </MuiThemeProvider >  
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
