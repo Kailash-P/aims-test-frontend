@@ -1,1 +1,0 @@
-# aims-test-frontend
