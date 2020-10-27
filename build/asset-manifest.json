@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/aims-test-frontend/static/js/main.43e466d9.chunk.js",
+    "main.js.map": "/aims-test-frontend/static/js/main.43e466d9.chunk.js.map",
+    "runtime-main.js": "/aims-test-frontend/static/js/runtime-main.17f9f9ec.js",
+    "runtime-main.js.map": "/aims-test-frontend/static/js/runtime-main.17f9f9ec.js.map",
+    "static/js/2.de9faac9.chunk.js": "/aims-test-frontend/static/js/2.de9faac9.chunk.js",
+    "static/js/2.de9faac9.chunk.js.map": "/aims-test-frontend/static/js/2.de9faac9.chunk.js.map",
+    "index.html": "/aims-test-frontend/index.html",
+    "precache-manifest.817e9221800cb91c962aba02717b864b.js": "/aims-test-frontend/precache-manifest.817e9221800cb91c962aba02717b864b.js",
+    "service-worker.js": "/aims-test-frontend/service-worker.js",
+    "static/js/2.de9faac9.chunk.js.LICENSE.txt": "/aims-test-frontend/static/js/2.de9faac9.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.17f9f9ec.js",
+    "static/js/2.de9faac9.chunk.js",
+    "static/js/main.43e466d9.chunk.js"
+  ]
+}
