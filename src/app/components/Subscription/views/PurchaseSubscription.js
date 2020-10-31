@@ -18,6 +18,8 @@ import Box from "@material-ui/core/Box";
 import AddIcon from "@material-ui/icons/Add";
 import DeleteIcon from "@material-ui/icons/Delete";
 import SaveIcon from "@material-ui/icons/Save";
+import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
+import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
 const useStyles = makeStyles((theme) => ({
   Appcss: {
     backgroundColor: "rgba(255,255,255,0.5)",
@@ -119,6 +121,7 @@ const AddStore = ()=>{
 
   return (
     <React.Fragment>
+      <LandingPageHeader />
       <Container component="main" maxWidth="lg">
         <CssBaseline />
         <Box display="flex" flexDirection="row-reverse">
@@ -368,6 +371,7 @@ const AddStore = ()=>{
             </Box>
           </Box>
       </Container>
+      <LandingPageFooter />
     </React.Fragment>
   );
 }

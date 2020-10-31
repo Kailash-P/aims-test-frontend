@@ -6,6 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
+import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
 
 const useStyles = makeStyles((theme) => ({
   Appcss: {
@@ -24,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -42,17 +44,24 @@ export default function VerificationCodeSent() {
   const classes = useStyles();
 
   return (
-    <React.Fragment >
-      <Container component="main" maxWidth="lg"  >
-      <CssBaseline />
-        <Container component="main" maxWidth="xs" style={{backgroundColor: "rgba(255,255,255,0.5)",
-    backdropFilter: "blur(6px)",
-    borderRadius: "15px",
-    padding: "30px",
-    marginTop: "10%",
-    justifyContent: "center",
-    alignItems: "center"}}  >
-          <div className={classes.paper}  >
+    <React.Fragment>
+      <LandingPageHeader />
+      <Container component="main" maxWidth="lg">
+        <CssBaseline />
+        <Container
+          component="main"
+          maxWidth="xs"
+          style={{
+            backgroundColor: "rgba(255,255,255,0.5)",
+            backdropFilter: "blur(6px)",
+            borderRadius: "15px",
+            padding: "30px",
+            marginTop: "10%",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div className={classes.paper}>
             <Avatar className={classes.avatar}>
               <CheckCircleIcon />
             </Avatar>
@@ -77,6 +86,7 @@ export default function VerificationCodeSent() {
           </div>
         </Container>
       </Container>
+      <LandingPageFooter />
     </React.Fragment>
   );
 }

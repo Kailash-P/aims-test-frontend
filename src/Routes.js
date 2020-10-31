@@ -8,17 +8,20 @@ import LandingPage from "./app/components/LandingPage/views/LandingPage";
 import pricing from "./app/components/pricing/views/pricing";
 import PaymentCheckout from "./app/components/Payment/views/PaymentCheckout";
 import SignUp from "./app/components/SignUp/views/SingUp";
-import LandingPageHeader from "./app/components/LandingPage/views/LandingPageHeader";
-import LandingPageFooter from "./app/components/LandingPage/views/LandingPageFooter";
+// import LandingPageHeader from "./app/components/LandingPage/views/LandingPageHeader";
+// import LandingPageFooter from "./app/components/LandingPage/views/LandingPageFooter";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import PurchaseSubscription from "./app/components/Subscription/views/PurchaseSubscription";
-import AimsChatBot from "./app/components/AimsChatBot/views/AimsChatBot";
+import Home from './app/components/Home/views/Home'
+// import AimsChatBot from "./app/components/AimsChatBot/views/AimsChatBot";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
       // Purple and green play nicely together.
-      main: "#003E9B",
+      // main: "#003E9B",
+      // main: "rgb(239, 108, 0, 0.7);",
+      main : "rgb(0, 0, 0, 0.9);"
     },
   },
   overrides: {
@@ -44,7 +47,7 @@ function Routes() {
   return (    
     <BrowserRouter>
     <MuiThemeProvider theme={theme}>
-      <LandingPageHeader />
+      {/* <LandingPageHeader /> */}
         <Switch>
         <React.Fragment>
             <Route exact path="/" component={LandingPage} />
@@ -57,10 +60,11 @@ function Routes() {
             <Route exact path="/paymentCheckout" component={PaymentCheckout} />
             <Route exact path="/pricing" component={pricing} />
             <Route exact path="/purchaseSubscription" component={PurchaseSubscription} />
+            <Route exact path="/home" component={Home} />
         </React.Fragment>                 
         </Switch>
-        <LandingPageFooter />
-        <AimsChatBot/>
+        {/* <LandingPageFooter /> */}
+        {/* <AimsChatBot/> */}
       </MuiThemeProvider >  
     </BrowserRouter>
   );

@@ -10,6 +10,8 @@ import Typography from "@material-ui/core/Typography";
 import AddressForm from "./PaymentAddress";
 import PaymentForm from "./Payment";
 import Review from "./PaymentReview";
+import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
+import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
 
 const useStyles = makeStyles((theme) => ({
   Appcss: {
@@ -80,6 +82,7 @@ export default function Checkout() {
 
   return (
     <React.Fragment>
+      <LandingPageHeader  />
       <CssBaseline />
       <main className={classes.layout} >
         <Paper className={(classes.paper,classes.Appcss)} >
@@ -131,6 +134,7 @@ export default function Checkout() {
           </React.Fragment>
         </Paper>
       </main>
+      <LandingPageFooter />
     </React.Fragment>
   );
 }

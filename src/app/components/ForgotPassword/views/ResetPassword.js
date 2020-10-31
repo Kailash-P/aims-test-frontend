@@ -7,6 +7,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import LockIcon from "@material-ui/icons/Lock";
+import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
+import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -45,6 +47,7 @@ export default function ResetPassword() {
 
   return (
     <React.Fragment>
+      <LandingPageHeader />
       <Container component="main" maxWidth="lg">
         <CssBaseline />
         <Container component="main" maxWidth="xs" className={classes.Appcss}>
@@ -105,6 +108,7 @@ export default function ResetPassword() {
           </div>
         </Container>
       </Container>
+      <LandingPageFooter />
     </React.Fragment>
   );
 }

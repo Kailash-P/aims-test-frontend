@@ -3,6 +3,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import SignIn from "../../signin/views/signIn";
+import LandingPageHeader from "./LandingPageHeader";
+import LandingPageFooter from "./LandingPageFooter";
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -15,6 +17,7 @@ const LandingPage = () => {
 
   return (
     <>
+    <LandingPageHeader />
       <Container maxWidth="lg">
         <Grid
           container
@@ -23,6 +26,7 @@ const LandingPage = () => {
           alignItems="center"
           className={classes.mainGrid}
         >
+          
           <Grid item xs={12} md={8}>
             <h1 style={{ margin: "0", fontSize: "175px", fontWeight: "300" }}>
               AIMS              
@@ -35,7 +39,9 @@ const LandingPage = () => {
             <SignIn></SignIn>
           </Grid>
         </Grid>
+        
       </Container>
+      <LandingPageFooter />
     </>
   );
 };

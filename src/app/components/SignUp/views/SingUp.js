@@ -11,6 +11,8 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
+import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -46,7 +48,7 @@ export default function SignUp() {
 
   return (
     <React.Fragment>
-      
+      <LandingPageHeader />
       <Container component="main" maxWidth="lg">
         <CssBaseline />
         <Container maxWidth="xs" className={classes.Appcss} >
@@ -135,6 +137,7 @@ export default function SignUp() {
           </div>
         </Container>
       </Container>
+      <LandingPageFooter />
     </React.Fragment>
   );
 }
