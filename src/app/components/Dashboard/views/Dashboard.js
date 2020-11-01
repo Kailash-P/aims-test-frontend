@@ -89,7 +89,7 @@ const Dashboard = () => {
             size="medium"
             startIcon={<SupervisorAccountIcon />}
           >
-            Admin Dashboard
+            Admin Center
           </Button>
           <UserProfile />
         </Toolbar>

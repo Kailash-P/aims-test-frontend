@@ -14,6 +14,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { mainListItems } from "./MenuListItems";
 import UserProfile from "../../Base/views/UserProfile";
+import AppsIcon from "@material-ui/icons/Apps";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const drawerWidth = 275;
 
@@ -56,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
-    color: "rgba(0, 0, 0, 0.7);",
+    color: "rgba(0, 0, 0);",
   },
   drawerPaper: {
     // backgroundColor: "rgba(255,255,255,0.7)",
@@ -105,6 +107,9 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: theme.palette.primary.main,
   },
+  typographyText: {
+    color: "rgba(0, 0, 0);",
+  },
 }));
 
 export default function MenuLandingPage() {
@@ -146,6 +151,21 @@ export default function MenuLandingPage() {
             >
               AIMS
             </Typography>
+            {/* Menu buttons */}
+            <Tooltip title="Go to Store Dashboard">
+              <IconButton href="/dashboard">
+                <AppsIcon />
+                <Divider orientation="vertical" flexItem />
+              </IconButton>
+            </Tooltip>
+            {/* <Typography
+              component="h2"
+              variant="h5"
+              noWrap
+              className={classes.typographyText}
+            >
+              Welcome, Kailash P
+            </Typography> */}
             <UserProfile />
           </Toolbar>
         </AppBar>
