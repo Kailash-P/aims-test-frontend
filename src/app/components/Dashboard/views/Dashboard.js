@@ -12,7 +12,7 @@ import StorefrontIcon from "@material-ui/icons/Storefront";
 import { Button, CardActionArea } from "@material-ui/core";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
-import UserProfile from "../../Base/views/UserProfile";
+import UserProfile from "../../base/views/UserProfile";
 
 const Dashboard = () => {
   const useStyles = makeStyles((theme) => ({

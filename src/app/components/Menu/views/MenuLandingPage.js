@@ -13,7 +13,7 @@ import Container from "@material-ui/core/Container";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { mainListItems } from "./MenuListItems";
-import UserProfile from "../../Base/views/UserProfile";
+import UserProfile from "../../base/views/UserProfile";
 import AppsIcon from "@material-ui/icons/Apps";
 import Tooltip from "@material-ui/core/Tooltip";
 
