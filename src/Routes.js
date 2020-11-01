@@ -13,6 +13,7 @@ import SignUp from "./app/components/SignUp/views/SingUp";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import PurchaseSubscription from "./app/components/Subscription/views/PurchaseSubscription";
 import Home from './app/components/Home/views/Home'
+import Dashboard from "./app/components/Dashboard/views/Dashboard";
 // import AimsChatBot from "./app/components/AimsChatBot/views/AimsChatBot";
 
 const theme = createMuiTheme({
@@ -61,6 +62,7 @@ function Routes() {
             <Route exact path="/pricing" component={pricing} />
             <Route exact path="/purchaseSubscription" component={PurchaseSubscription} />
             <Route exact path="/home" component={Home} />
+            <Route exact path="/dashboard" component={Dashboard} />
         </React.Fragment>                 
         </Switch>
         {/* <LandingPageFooter /> */}

@@ -13,17 +13,7 @@ import Container from "@material-ui/core/Container";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import { mainListItems } from "./MenuListItems";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Grow from "@material-ui/core/Grow";
-import Popper from "@material-ui/core/Popper";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import { ListItemIcon, Paper } from "@material-ui/core";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import FaceIcon from "@material-ui/icons/Face";
-import { Link } from "react-router-dom";
-// import Avatar from "@material-ui/core/Avatar";
+import UserProfile from "../../Base/views/UserProfile";
 
 const drawerWidth = 275;
 
@@ -59,7 +49,6 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   menuButton: {
-    marginRight: 36,
     color: "primary",
   },
   menuButtonHidden: {
@@ -121,8 +110,6 @@ const useStyles = makeStyles((theme) => ({
 export default function MenuLandingPage() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  const [openAccountPopUp, setopenAccountPopUp] = React.useState(false);
-  const accountAnchorRef = React.useRef(null);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -130,36 +117,6 @@ export default function MenuLandingPage() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
-  const handleAccountPopUpToggle = () => {
-    setopenAccountPopUp((prevAccountOpen) => !prevAccountOpen);
-  };
-
-  const handleAccountPopUpClose = (event) => {
-    if (
-      accountAnchorRef.current &&
-      accountAnchorRef.current.contains(event.target)
-    ) {
-      return;
-    }
-
-    setopenAccountPopUp(false);
-  };
-
-  function handleAccountPopUpListKeyDown(event) {
-    if (event.key === "Tab") {
-      event.preventDefault();
-      setopenAccountPopUp(false);
-    }
-  }
-
-  const prevAccountOpen = React.useRef(openAccountPopUp);
-  React.useEffect(() => {
-    // if (accountAnchorRef.current.focus && prevAccountOpen.current === true && openAccountPopUp === false) {
-    //   accountAnchorRef.current.focus();
-    // }
-    prevAccountOpen.current = openAccountPopUp;
-  }, [openAccountPopUp]);
 
   return (
     <React.Fragment>
@@ -183,66 +140,13 @@ export default function MenuLandingPage() {
             </IconButton>
             <Typography
               component="h1"
-              variant="h6"
+              variant="h5"
               noWrap
               className={classes.title}
             >
-              Home
+              AIMS
             </Typography>
-            <IconButton
-              onClick={handleAccountPopUpToggle}
-              ref={accountAnchorRef}
-              aria-controls={openAccountPopUp ? "menu-list-grow" : undefined}
-              aria-haspopup="true"
-            >
-              {/* <Avatar className={classes.avatar}> */}
-                <AccountCircleIcon />
-              {/* </Avatar> */}
-              <Popper
-                open={openAccountPopUp}
-                anchorEl={accountAnchorRef.current}
-                role={undefined}
-                transition
-                disablePortal
-              >
-                {({ TransitionProps, placement }) => (
-                  <Grow
-                    {...TransitionProps}
-                    style={{
-                      transformOrigin:
-                        placement === "bottom" ? "center top" : "center bottom",
-                    }}
-                  >
-                    <Paper className={classes.AccountPopUp}>
-                      <ClickAwayListener onClickAway={handleAccountPopUpClose}>
-                        <MenuList
-                          autoFocusItem={openAccountPopUp}
-                          id="menu-list-grow"
-                          onKeyDown={handleAccountPopUpListKeyDown}
-                        >
-                          <MenuItem onClick={handleAccountPopUpClose}>
-                            <ListItemIcon>
-                              <FaceIcon fontSize="small" />
-                              <span>My Account</span>
-                            </ListItemIcon>
-                          </MenuItem>
-                          <MenuItem
-                            onClick={handleAccountPopUpClose}
-                            component={Link}
-                            to="/"
-                          >
-                            <ListItemIcon>
-                              <ExitToAppIcon fontSize="small" />
-                              <span>Sign out</span>
-                            </ListItemIcon>
-                          </MenuItem>
-                        </MenuList>
-                      </ClickAwayListener>
-                    </Paper>
-                  </Grow>
-                )}
-              </Popper>
-            </IconButton>
+            <UserProfile />
           </Toolbar>
         </AppBar>
         <Drawer
