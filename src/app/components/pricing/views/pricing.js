@@ -27,6 +27,7 @@ import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
 import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
+import Divider from "@material-ui/core/Divider";
 
 function a11yProps(index) {
   return {
@@ -415,8 +416,9 @@ export default function Pricing() {
               </CardContent>
               {tier.id === 1 && (
                 <CardContent align="center">
+                  <Divider />
                   <Typography className={classes.cardpaid}>
-                    {" "}
+                  {" "}
                     3 months free trial
                   </Typography>
                 </CardContent>
