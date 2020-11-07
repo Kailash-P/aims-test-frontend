@@ -12,7 +12,6 @@ import IconButton from "@material-ui/core/IconButton";
 import Container from "@material-ui/core/Container";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import { mainListItems } from "./MenuListItems";
 import UserProfile from "../../Base/views/UserProfile";
 import AppsIcon from "@material-ui/icons/Apps";
 import Tooltip from "@material-ui/core/Tooltip";
@@ -112,7 +111,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MenuLandingPage() {
+export default function MenuLandingPage({ menuListItems }) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
 
@@ -182,7 +181,7 @@ export default function MenuLandingPage() {
             </IconButton>
           </div>
           <Divider />
-          <List>{mainListItems}</List>
+          <List>{menuListItems}</List>
           <Divider />
         </Drawer>
         <main className={classes.content}>
