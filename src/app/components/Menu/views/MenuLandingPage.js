@@ -12,7 +12,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Container from "@material-ui/core/Container";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import UserProfile from "../../Base/views/UserProfile";
+import UserProfile from "../../base/views/UserProfile";
 import AppsIcon from "@material-ui/icons/Apps";
 import Tooltip from "@material-ui/core/Tooltip";
 
@@ -50,7 +50,8 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   menuButton: {
-    color: "primary",
+    // color: "primary",
+    marginRight:'36'
   },
   menuButtonHidden: {
     display: "none",
@@ -113,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MenuLandingPage({ menuListItems }) {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -121,6 +122,7 @@ export default function MenuLandingPage({ menuListItems }) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
 
   return (
     <React.Fragment>
@@ -181,12 +183,14 @@ export default function MenuLandingPage({ menuListItems }) {
             </IconButton>
           </div>
           <Divider />
-          <List>{menuListItems}</List>
+          <List onClick={handleDrawerClose} >{menuListItems}</List>
           <Divider />
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
-          {/* <Container maxWidth="lg" className={classes.container}></Container> */}
+          {/* <Container maxWidth="lg" className={classes.container}>
+            {children}
+          </Container> */}
         </main>
       </Container>
     </React.Fragment>
