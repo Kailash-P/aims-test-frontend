@@ -1,5 +1,5 @@
 import React from 'react'
-import Base from '../../base/views/base'
+import Base from '../../Base/views/Base'
 
 export default function Home() {
     return (
