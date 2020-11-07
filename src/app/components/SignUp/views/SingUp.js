@@ -61,7 +61,7 @@ export default function SignUp() {
             </Typography>
             <form className={classes.form} noValidate>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
                   <TextField
                     autoComplete="fname"
                     name="firstName"
@@ -73,7 +73,18 @@ export default function SignUp() {
                     autoFocus
                   />
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="middleName"
+                    label="Middle Name"
+                    name="middleName"
+                    autoComplete="mname"
+                  />
+                </Grid>
+                <Grid item xs={12}>
                   <TextField
                     variant="outlined"
                     required
@@ -105,6 +116,78 @@ export default function SignUp() {
                     type="password"
                     id="password"
                     autoComplete="current-password"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    name="street1"
+                    label="Street 1"
+                    type="street1"
+                    id="street1"
+                    autoComplete="street1"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    name="street2"
+                    label="Street 2"
+                    type="street2"
+                    id="street2"
+                    autoComplete="street2"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    name="country"
+                    label="Country"
+                    type="country"
+                    id="country"
+                    autoComplete="country"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    name="state"
+                    label="State"
+                    type="state"
+                    id="state"
+                    autoComplete="state"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    name="city"
+                    label="City"
+                    type="city"
+                    id="city"
+                    autoComplete="city"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    variant="outlined"
+                    required
+                    fullWidth
+                    name="zipcode"
+                    label="Zip Code"
+                    type="zipcode"
+                    id="zipcode"
+                    autoComplete="zipcode"
                   />
                 </Grid>
                 <Grid item xs={12}>

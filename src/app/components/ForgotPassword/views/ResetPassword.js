@@ -68,6 +68,17 @@ export default function ResetPassword() {
                 margin="normal"
                 required
                 fullWidth
+                name="userid"
+                label="User Id"
+                type="userid"
+                id="userid"
+                autoComplete="Enter User Id"
+              />
+              <TextField
+                variant="outlined"
+                margin="normal"
+                required
+                fullWidth
                 name="newPassword"
                 label="New Password"
                 type="password"
