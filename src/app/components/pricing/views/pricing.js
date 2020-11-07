@@ -27,6 +27,7 @@ import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
 import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
+import Divider from "@material-ui/core/Divider";
 
 function a11yProps(index) {
   return {
@@ -264,25 +265,85 @@ export default function Pricing() {
   return (
     <React.Fragment>
       <LandingPageHeader />
-      <Container component="main" maxWidth="lg">
-        <Container maxWidth="sm" component="main">
-          <Tabs
-            centered
-            className={classes.planswitcher}
-            value={plan}
-            onChange={handleChange}
-            indicatorColor="primary"
-            textColor="primary"
-          >
-            <Tab label="Yearly" {...a11yProps(0)} />
-            <Tab label="2 Years" {...a11yProps(1)} />
-          </Tabs>
-        </Container>
-        <Container maxWidth="lg" component="main">
-          <Grid container justify="center" alignItems="flex-end">
-            <Card className={classes.card}>
+    <Container component="main" maxWidth="lg">
+      <Container maxWidth="sm" component="main">
+        <Tabs
+          centered
+          className={classes.planswitcher}
+          value={plan}
+          onChange={handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+        >
+          <Tab label="Yearly" {...a11yProps(0)} />
+          <Tab label="2 Years" {...a11yProps(1)} />
+        </Tabs>
+      </Container>
+      <Container maxWidth="lg" component="main">
+        <Grid container justify="center" alignItems="flex-end">
+          <Card className={classes.card}>
+            <CardHeader
+              title="Custom"
+              titleTypographyProps={{ align: "center" }}
+              subheaderTypographyProps={{
+                align: "center",
+              }}
+              className={classes.cardHeader}
+            />
+            <CardContent>
+              <Typography variant="h6" align="center">
+                Stores
+              </Typography>
+              <PrettoSlider
+                id="storesslider"
+                value={stores}
+                onChange={setStoresValue}
+                min={1}
+                max={100}
+                valueLabelDisplay="auto"
+                aria-label="pretto slider"
+                defaultValue={1}
+              />
+              <Typography variant="h6" align="center">
+                Users
+              </Typography>
+              <PrettoSlider
+                id="users"
+                value={users}
+                onChange={setUsersValue}
+                valueLabelDisplay="auto"
+                min={5}
+                max={500}
+                aria-label="pretto slider"
+                defaultValue={5}
+              />
+              <TextField
+                className={classes.textField}
+                id="numbertextfield"
+                label="Stores"
+                value={stores}
+                onChange={setStoresinputValue}
+                type="number"
+                InputLabelProps={{ shrink: true }}
+                margin="normal"
+              />
+              <TextField
+                className={classes.textField}
+                id="userstextfield"
+                label="Users"
+                value={users}
+                onChange={setUsersinputValue}
+                type="number"
+                InputLabelProps={{ shrink: true }}
+                margin="normal"
+              />
+            </CardContent>
+          </Card>
+          {tiers.map((tier) => (
+            <Card className={classes.card} key={tier.id}>
               <CardHeader
-                title="Custom"
+                title={tier.title}
+                subheader={tier.subheader}
                 titleTypographyProps={{ align: "center" }}
                 subheaderTypographyProps={{
                   align: "center",
@@ -290,89 +351,42 @@ export default function Pricing() {
                 className={classes.cardHeader}
               />
               <CardContent>
-                <Typography variant="h6" align="center">
-                  Stores
-                </Typography>
-                <PrettoSlider
-                  id="storesslider"
-                  value={stores}
-                  onChange={setStoresValue}
-                  min={1}
-                  max={100}
-                  valueLabelDisplay="auto"
-                  aria-label="pretto slider"
-                  defaultValue={1}
-                />
-                <Typography variant="h6" align="center">
-                  Users
-                </Typography>
-                <PrettoSlider
-                  id="users"
-                  value={users}
-                  onChange={setUsersValue}
-                  valueLabelDisplay="auto"
-                  min={5}
-                  max={500}
-                  aria-label="pretto slider"
-                  defaultValue={5}
-                />
-                <TextField
-                  className={classes.textField}
-                  id="numbertextfield"
-                  label="Stores"
-                  value={stores}
-                  onChange={setStoresinputValue}
-                  type="number"
-                  InputLabelProps={{ shrink: true }}
-                  margin="normal"
-                />
-                <TextField
-                  className={classes.textField}
-                  id="userstextfield"
-                  label="Users"
-                  value={users}
-                  onChange={setUsersinputValue}
-                  type="number"
-                  InputLabelProps={{ shrink: true }}
-                  margin="normal"
-                />
+                <div className={classes.cardPricing}>
+                  <Typography component="h4" variant="h4">
+                    ${tier.id === 1 && "0"}
+                    {tier.id === 2 && starterprice}
+                    {tier.id === 3 && plusprice}
+                    {tier.id === 4 && premiumprice}
+                  </Typography>
+                  {tier.id !== 1 && (
+                    <Typography variant="h6">/months</Typography>
+                  )}
+                </div>
               </CardContent>
-            </Card>
-            {tiers.map((tier) => (
-              <Card className={classes.card} key={tier.id}>
-                <CardHeader
-                  title={tier.title}
-                  subheader={tier.subheader}
-                  titleTypographyProps={{ align: "center" }}
-                  subheaderTypographyProps={{
-                    align: "center",
-                  }}
-                  className={classes.cardHeader}
-                />
-                <CardContent>
-                  <div className={classes.cardPricing}>
-                    <Typography component="h4" variant="h4">
-                      ${tier.id === 1 && "0"}
-                      {tier.id === 2 && starterprice}
-                      {tier.id === 3 && plusprice}
-                      {tier.id === 4 && premiumprice}
-                    </Typography>
-                    {tier.id !== 1 && (
-                      <Typography variant="h6">/months</Typography>
-                    )}
-                  </div>
-                </CardContent>
-                <CardActions>
-                  <Button
-                    href="/signUp"
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                  >
-                    {tier.buttonText}
-                  </Button>
-                </CardActions>
-                <CardContent className={classes.cardpaidlist}>
+              <CardActions>
+                <Button
+                  href="/signUp"
+                  fullWidth
+                  variant="contained"
+                  color="primary"
+                >
+                  {tier.buttonText}
+                </Button>
+              </CardActions>
+              <CardContent className={classes.cardpaidlist}>
+                <Typography
+                  className={classes.cardpaid}
+                  fontSize="inherit"
+                  variant="h6"
+                >
+                  <CheckSharpIcon
+                    className={classes.cardpaidlisticon}
+                    style={{ color: green[500] }}
+                  />
+                  Inventory Management
+                </Typography>
+
+                {(tier.id === 1 || tier.id === 3 || tier.id === 4) && (
                   <Typography
                     className={classes.cardpaid}
                     fontSize="inherit"
@@ -382,139 +396,127 @@ export default function Pricing() {
                       className={classes.cardpaidlisticon}
                       style={{ color: green[500] }}
                     />
-                    Inventory Management
+                    Asset Management
                   </Typography>
-
-                  {(tier.id === 1 || tier.id === 3 || tier.id === 4) && (
-                    <Typography
-                      className={classes.cardpaid}
-                      fontSize="inherit"
-                      variant="h6"
-                    >
-                      <CheckSharpIcon
-                        className={classes.cardpaidlisticon}
-                        style={{ color: green[500] }}
-                      />
-                      Asset Management
-                    </Typography>
-                  )}
-
-                  {(tier.id === 1 || tier.id === 4) && (
-                    <Typography
-                      className={classes.cardpaid}
-                      fontSize="inherit"
-                      variant="h6"
-                    >
-                      <CheckSharpIcon
-                        className={classes.cardpaidlisticon}
-                        style={{ color: green[500] }}
-                      />
-                      Data Analytics
-                    </Typography>
-                  )}
-                </CardContent>
-                {tier.id === 1 && (
-                  <CardContent align="center">
-                    <Typography className={classes.cardpaid}>
-                      {" "}
-                      3 months free trial
-                    </Typography>
-                  </CardContent>
                 )}
-              </Card>
-            ))}
-          </Grid>
-        </Container>
-        <div className={classes.showallplan}>
-          <Button onClick={ShowAllPlan} variant="contained" color="primary">
-            {showallplanbuttontext}
-            {showallplan === true && <ArrowUpwardIcon fontSize="inherit" />}
-            {showallplan === false && <ArrowDownwardIcon fontSize="inherit" />}
-          </Button>
-        </div>
 
-        {showallplan === true && (
-          <TableContainer component={Paper} className={classes.plantable}>
-            <Table aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell></TableCell>
-                  <TableCell justify="center">AIMS Starter</TableCell>
-                  <TableCell justify="center">AIMS Plus&nbsp;</TableCell>
-                  <TableCell justify="center">AIMS Premium&nbsp;</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {rows.map((row) => (
-                  <TableRow key={row.name}>
-                    <TableCell component="th" scope="row" flexwrap="nowrap">
-                      <Typography
-                        className={classes.plantableheader}
-                        component="th"
-                      >
-                        {" "}
-                        {row.name}
-                      </Typography>
-                      {row.name === "Data Analytics" && (
-                        <Typography
-                          style={{ color: green[500] }}
-                          component="span"
-                          className={classes.commingsoon}
-                        >
-                          Coming Soon
-                        </Typography>
-                      )}
-                    </TableCell>
-                    <TableCell justify="center">
-                      {" "}
-                      {row.starter === true ? (
-                        <CheckSharpIcon
-                          className={classes.gridlisticon}
-                          style={{ color: green[500] }}
-                        ></CheckSharpIcon>
-                      ) : (
-                        <CloseSharpIcon
-                          className={classes.gridlisticon}
-                          style={{ color: red[500] }}
-                        ></CloseSharpIcon>
-                      )}{" "}
-                    </TableCell>
-                    <TableCell justify="center">
-                      {" "}
-                      {row.plus === true ? (
-                        <CheckSharpIcon
-                          className={classes.gridlisticon}
-                          style={{ color: green[500] }}
-                        ></CheckSharpIcon>
-                      ) : (
-                        <CloseSharpIcon
-                          className={classes.gridlisticon}
-                          style={{ color: red[500] }}
-                        ></CloseSharpIcon>
-                      )}{" "}
-                    </TableCell>
-                    <TableCell justify="center">
-                      {" "}
-                      {row.premium === true ? (
-                        <CheckSharpIcon
-                          className={classes.gridlisticon}
-                          style={{ color: green[500] }}
-                        ></CheckSharpIcon>
-                      ) : (
-                        <CloseSharpIcon
-                          className={classes.gridlisticon}
-                          style={{ color: red[500] }}
-                        ></CloseSharpIcon>
-                      )}{" "}
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        )}
+                {(tier.id === 1 || tier.id === 4) && (
+                  <Typography
+                    className={classes.cardpaid}
+                    fontSize="inherit"
+                    variant="h6"
+                  >
+                    <CheckSharpIcon
+                      className={classes.cardpaidlisticon}
+                      style={{ color: green[500] }}
+                    />
+                    Data Analytics
+                  </Typography>
+                )}
+              </CardContent>
+              {tier.id === 1 && (
+                <CardContent align="center">
+                  <Divider />
+                  <Typography className={classes.cardpaid}>
+                  {" "}
+                    3 months free trial
+                  </Typography>
+                </CardContent>
+              )}
+            </Card>
+          ))}
+        </Grid>
       </Container>
-      <LandingPageFooter />
+      <div className={classes.showallplan}>
+        <Button onClick={ShowAllPlan} variant="contained" color="primary">
+          {showallplanbuttontext}
+          {showallplan === true && <ArrowUpwardIcon fontSize="inherit" />}
+          {showallplan === false && <ArrowDownwardIcon fontSize="inherit" />}
+        </Button>
+      </div>
+
+      {showallplan === true && (
+        <TableContainer component={Paper} className={classes.plantable}>
+          <Table aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell></TableCell>
+                <TableCell justify="center">AIMS Starter</TableCell>
+                <TableCell justify="center">AIMS Plus&nbsp;</TableCell>
+                <TableCell justify="center">AIMS Premium&nbsp;</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.name}>
+                  <TableCell component="th" scope="row" flexwrap="nowrap">
+                    <Typography
+                      className={classes.plantableheader}
+                      component="th"
+                    >
+                      {" "}
+                      {row.name}
+                    </Typography>
+                    {row.name === "Data Analytics" && (
+                      <Typography
+                        style={{ color: green[500] }}
+                        component="span"
+                        className={classes.commingsoon}
+                      >
+                        Coming Soon
+                      </Typography>
+                    )}
+                  </TableCell>
+                  <TableCell justify="center">
+                    {" "}
+                    {row.starter === true ? (
+                      <CheckSharpIcon
+                        className={classes.gridlisticon}
+                        style={{ color: green[500] }}
+                      ></CheckSharpIcon>
+                    ) : (
+                      <CloseSharpIcon
+                        className={classes.gridlisticon}
+                        style={{ color: red[500] }}
+                      ></CloseSharpIcon>
+                    )}{" "}
+                  </TableCell>
+                  <TableCell justify="center">
+                    {" "}
+                    {row.plus === true ? (
+                      <CheckSharpIcon
+                        className={classes.gridlisticon}
+                        style={{ color: green[500] }}
+                      ></CheckSharpIcon>
+                    ) : (
+                      <CloseSharpIcon
+                        className={classes.gridlisticon}
+                        style={{ color: red[500] }}
+                      ></CloseSharpIcon>
+                    )}{" "}
+                  </TableCell>
+                  <TableCell justify="center">
+                    {" "}
+                    {row.premium === true ? (
+                      <CheckSharpIcon
+                        className={classes.gridlisticon}
+                        style={{ color: green[500] }}
+                      ></CheckSharpIcon>
+                    ) : (
+                      <CloseSharpIcon
+                        className={classes.gridlisticon}
+                        style={{ color: red[500] }}
+                      ></CloseSharpIcon>
+                    )}{" "}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      )}
+    </Container>
+    <LandingPageFooter />
     </React.Fragment>
   );
 }

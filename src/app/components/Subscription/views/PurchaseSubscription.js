@@ -20,13 +20,17 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import SaveIcon from "@material-ui/icons/Save";
 import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
 import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 const useStyles = makeStyles((theme) => ({
   Appcss: {
     backgroundColor: "rgba(255,255,255,0.5)",
     backdropFilter: "blur(6px)",
     borderRadius: "15px",
-    padding: "30px",
-    marginTop: "5%",
+    padding: "10px",
+    marginTop: "1%",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -70,6 +74,12 @@ const useStyles = makeStyles((theme) => ({
   margin: {
     margin: theme.spacing(1),
   },
+  formControl: {
+    margin: 0,
+    fullWidth: true,
+    display: "flex",
+    wrap: "nowrap"
+  }
 }));
 
 const storeObj =
@@ -84,12 +94,13 @@ const storeObj =
     country:'', 
     state:'', 
     city:'', 
-    zip:''
+    zip:'',
+    isExpanded:true
   }
   
 export default function Subscription() {
   const classes = useStyles();
-  const [storeList, setStoreList] = useState([storeObj]);
+  const [storeList, setStoreList] = useState(JSON.parse(JSON.stringify([storeObj])));
   const numberOfStore = 2
   var maxRowID;
 
@@ -100,24 +111,38 @@ export default function Subscription() {
         newArr[index] = item;
         setStoreList(newArr);
   }
-
+const HandleExpanded  = (event,index)=>{
+  let newArr = [...storeList];
+  let item = newArr[index];
+  item.isExpanded = !item.isExpanded;
+  newArr[index] = item;
+  setStoreList(newArr);
+}
 const AddStore = ()=>{
     maxRowID = 0;
     storeList.map(function(obj){     
     if (obj.id > maxRowID) {maxRowID = obj.id};    
     return maxRowID;
     });
-     storeObj.id = (maxRowID+1);
-     setStoreList(storeList.concat([storeObj]));    
-  }
+    var objDetail = JSON.parse(JSON.stringify(storeObj));
+        objDetail.id = (maxRowID+1);
+     for(var i=0;i< storeList.length;i++){
+     var item = storeList[i];
+         item.isExpanded = false;
+     }
+     setStoreList(storeList.concat(JSON.parse(JSON.stringify([objDetail]))));    
+    }
 
   const RemoveStore = (e,index)=>{
     if(storeList && storeList.length > 1){
     const list = [...storeList];
     list.splice(index, 1);
-    setStoreList(list);
+    if(list !== null && list.length === 1){
+      list[0].isExpanded = true;
     }
+    setStoreList(list);
   }
+}
 
   return (
     <React.Fragment>
@@ -150,7 +175,9 @@ const AddStore = ()=>{
         {storeList.map((store,i) => (
            <div key={i}>
         <div className={classes.paper}>
-          <Accordion className={classes.Appcss} defaultExpanded>
+          <Accordion className={classes.Appcss}  expanded={store.isExpanded === true} onChange={(event) => {
+                          HandleExpanded(event, i)
+                      }}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1c-content"
@@ -325,14 +352,31 @@ const AddStore = ()=>{
                       }}
                       />
                     </Grid>
-                    <Grid item xs={12}></Grid>
                   </Grid>
                 </form>
               </div>
             </AccordionDetails>
-            
             <Divider />
-            <AccordionActions>
+            <Box component="div"width="100%" style={{ display: 'inline-flex' }}>
+            <Box component="div"  paddingBottom={1.5} paddingTop={2} paddingLeft={2} width="50%">
+            <FormControl variant="outlined"  className={classes.formControl}>
+                 <InputLabel id="planlabel">Plan</InputLabel>
+                    <Select
+                    labelId="planlabel"
+                    id="panselectoutlined"
+                    label="Plan">
+                    <MenuItem value="">
+                    <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={1}>Basic</MenuItem>
+                    <MenuItem value={2}>Starter</MenuItem>
+                    <MenuItem value={3}>Plus</MenuItem>
+                    <MenuItem value={4}>Premium</MenuItem>
+                    </Select>
+            </FormControl>
+            </Box>
+            <Box component="div" width="50%">
+            <AccordionActions >
               <Fab
                 size="small"
                 color="primary"
@@ -354,6 +398,8 @@ const AddStore = ()=>{
               </Fab>
               )}
             </AccordionActions>
+            </Box>
+            </Box>
           </Accordion>
           </div>
           </div>
