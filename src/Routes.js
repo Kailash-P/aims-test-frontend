@@ -8,12 +8,11 @@ import LandingPage from "./app/components/LandingPage/views/LandingPage";
 import pricing from "./app/components/pricing/views/pricing";
 import PaymentCheckout from "./app/components/Payment/views/PaymentCheckout";
 import SignUp from "./app/components/SignUp/views/SingUp";
-// import LandingPageHeader from "./app/components/LandingPage/views/LandingPageHeader";
-// import LandingPageFooter from "./app/components/LandingPage/views/LandingPageFooter";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import PurchaseSubscription from "./app/components/Subscription/views/PurchaseSubscription";
 import Home from './app/components/Home/views/Home'
 import Dashboard from "./app/components/Dashboard/views/Dashboard";
+import ActiveUsers from "./app/components/AdminCenter/views/ActiveUsers";
 // import AimsChatBot from "./app/components/AimsChatBot/views/AimsChatBot";
 
 const theme = createMuiTheme({
@@ -63,6 +62,7 @@ function Routes() {
             <Route exact path="/purchaseSubscription" component={PurchaseSubscription} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/activeUsers" component={ActiveUsers} />
         </React.Fragment>                 
         </Switch>
         {/* <LandingPageFooter /> */}
