@@ -9,23 +9,21 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
-import PersonAddOutlinedIcon from "@material-ui/icons/PersonAddOutlined";
+import GetAppOutlinedIcon from '@material-ui/icons/GetAppOutlined';
 import RefreshIcon from "@material-ui/icons/Refresh";
 import DeleteOutlineIcon from "@material-ui/icons/DeleteOutline";
-import VpnKeyOutlinedIcon from "@material-ui/icons/VpnKeyOutlined";
 import ReceiptOutlinedIcon from "@material-ui/icons/ReceiptOutlined";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import TextField from "@material-ui/core/TextField";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import AlternateEmailIcon from "@material-ui/icons/AlternateEmail";
 import Base from "../../base/views/base";
 import { AdminMenuListItems } from "./AdminMenuListItems";
-import InputAdornment from '@material-ui/core/InputAdornment';
-import SearchIcon from '@material-ui/icons/Search';
 import LandingPageFooter from "../../LandingPage/views/LandingPageFooter"
+import PropTypes from 'prop-types';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Box from '@material-ui/core/Box';
 import Container from "@material-ui/core/Container";
 
 const StyledMenu = withStyles({
@@ -91,14 +89,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "baseline",
     marginBottom: theme.spacing(2),
   },
-  container: {
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-    borderRadius: "5px",
-    backgroundColor:"rgba(255,255,255,0.5)",
-    backdropFilter:"blur(8px)"    
-  },
   cardHeader: {
     fontSize: "small",
   },
@@ -155,6 +145,14 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "Wrap",
     justifyContent: "left",
   },
+  container: {
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
+    marginBottom: theme.spacing(2),
+    borderRadius: "5px",
+    backgroundColor:"rgba(255,255,255,0.5)",
+    backdropFilter:"blur(8px)"    
+  },
   commingsoon: {
     border: "2px solid #0b8043",
     borderRadius: 4,
@@ -167,23 +165,54 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function createData(name, id, license, status) {
-  return { name, id, license, status };
+function createData(name, id,total, license) {
+  return { name, id,total, license };
 }
+const t1available = 0
+const t1assigned = 8
+const t1total = 8
+const t1 = (t1assigned/t1total)*100 
+const t2available = 5
+const t2assigned = 3
+const t2total = 8
+const t2 = (t2assigned/t2available)*100
+
 const rows = [
-  createData("test1", "test1@cloudville.io", "Asset Management", "Allowed"),
-  createData("test2", "test2@cloudville.io", "Inventory Management", "Allowed"),
-  createData(
-    "test3",
-    "test3@cloudville.io",
-    "Asset and Inventory Management",
-    "Allowed"
-  ),
-  createData("test4", "test4@cloudville.io", "Employee Management", "Allowed"),
-  // createData("Data Analytics", false, false, true),
+  createData("Inventory Management", [t1available, " available, ", t1assigned, " assigned of ",t1total," total"],t1, "Stores"),
+  createData("Asset Management", [t2available," available, ",t2assigned," assigned of ",t2total," total"],t2, "Stores"),
 ];
 
-export default function ActiveUsers() {
+function CircularProgressWithLabel(props) {
+    return (
+      <Box position="relative" display="inline-flex">
+        <CircularProgress variant="static" {...props} />
+        <Box
+          top={0}
+          left={0}
+          bottom={0}
+          right={0}
+          position="absolute"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Typography variant="caption" component="div" color="textSecondary">{`${Math.round(
+            props.value,
+          )}%`}</Typography>
+        </Box>
+      </Box>
+    );
+  }
+  
+  CircularProgressWithLabel.propTypes = {
+    /**
+     * The value of the progress indicator for the determinate and static variants.
+     * Value between 0 and 100.
+     */
+    value: PropTypes.number.isRequired,
+  };
+
+export default function Billing() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -199,58 +228,29 @@ export default function ActiveUsers() {
   return (
     
     <Base menuItems={AdminMenuListItems}>
-      <h1>Active Users</h1>
+      <h1>Billing</h1>
             <Container maxWidth="lg" className={classes.container}>
               <Button
                 className={classes.button}
-                startIcon={<PersonAddOutlinedIcon />}
+                startIcon={<GetAppOutlinedIcon />}
               >
-                Add a User
+                Export
               </Button>
               <Button className={classes.button} startIcon={<RefreshIcon />}>
                 Refresh
               </Button>
-              <Button
-                className={classes.button}
-                startIcon={<DeleteOutlineIcon />}
-              >
-                Delete
-              </Button>
-              <Button
-                className={classes.button}
-                startIcon={<VpnKeyOutlinedIcon />}
-              >
-                Reset Password
-              </Button>
-              <Button
-                className={classes.button}
-                startIcon={<ReceiptOutlinedIcon />}
-              >
-                Manage Subscription
-              </Button>
-              <TextField
-                id="input-with-icon-textfield"
-                label="Search User"
-                style={{marginLeft:"15rem"}}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <SearchIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
               </Container>
       <TableContainer component={Paper} className={classes.plantable}>
         <Table size="small" aria-label="a dense table">
           <TableHead id="1">
             <TableRow>
               <TableCell justify="center" style={{ fontStyle: "bold" }}>
-                Display Name
+                Name
               </TableCell>
-              <TableCell justify="center">Username</TableCell>
-              <TableCell justify="center">Licenses</TableCell>
-              <TableCell justify="center">Sign-In Status</TableCell>
+              <TableCell justify="center">Available Subscriptions</TableCell>
+              <TableCell></TableCell>
+              <TableCell justify="center">Account Type</TableCell>
+              {/* <TableCell justify="center">Account Type</TableCell> */}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -280,19 +280,13 @@ export default function ActiveUsers() {
                       <ListItemIcon>
                         <DeleteOutlineIcon fontSize="small" />
                       </ListItemIcon>
-                      <ListItemText primary="Delete User" />
+                      <ListItemText primary="Deactivate Subscription" />
                     </StyledMenuItem>
                     <StyledMenuItem>
                       <ListItemIcon>
                         <ReceiptOutlinedIcon fontSize="small" />
                       </ListItemIcon>
                       <ListItemText primary="Manage Subscription" />
-                    </StyledMenuItem>
-                    <StyledMenuItem>
-                      <ListItemIcon>
-                        <AlternateEmailIcon fontSize="small" />
-                      </ListItemIcon>
-                      <ListItemText primary="Manage username and email" />
                     </StyledMenuItem>
                   </StyledMenu>
                 </TableCell>
@@ -305,6 +299,7 @@ export default function ActiveUsers() {
                     {row.id}
                   </Typography>
                 </TableCell>
+                <TableCell><CircularProgressWithLabel value={row.total} /></TableCell>
                 <TableCell justify="center">
                   <Typography
                     className={classes.plantableheader}

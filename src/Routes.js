@@ -13,6 +13,7 @@ import PurchaseSubscription from "./app/components/Subscription/views/PurchaseSu
 import Home from './app/components/Home/views/Home'
 import Dashboard from "./app/components/Dashboard/views/Dashboard";
 import ActiveUsers from "./app/components/AdminCenter/views/ActiveUsers";
+import Billing from "./app/components/AdminCenter/views/Billing.js"
 // import AimsChatBot from "./app/components/AimsChatBot/views/AimsChatBot";
 
 const theme = createMuiTheme({
@@ -63,6 +64,7 @@ function Routes() {
             <Route exact path="/home" component={Home} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/activeUsers" component={ActiveUsers} />
+            <Route exact path="/billing" component={Billing} />
         </React.Fragment>                 
         </Switch>
         {/* <LandingPageFooter /> */}

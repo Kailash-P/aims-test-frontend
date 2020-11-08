@@ -13,7 +13,7 @@ export const AdminMenuListItems = (
       </ListItemIcon>
       <ListItemText primary="Active Users" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component="a" href="/billing">
       <ListItemIcon>
         <ReceiptIcon />
       </ListItemIcon>
