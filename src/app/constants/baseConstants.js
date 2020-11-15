@@ -1,0 +1,1 @@
+export const AIMS_BACKEND_URL = process.env.REACT_APP_AIMS_BACKEND_URL;

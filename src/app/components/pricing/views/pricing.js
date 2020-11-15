@@ -452,7 +452,7 @@ export default function Pricing() {
                   <TableCell component="th" scope="row" flexwrap="nowrap">
                     <Typography
                       className={classes.plantableheader}
-                      component="th"
+                      component="div"
                     >
                       {" "}
                       {row.name}

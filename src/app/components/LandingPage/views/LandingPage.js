@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import SignIn from "../../signin/views/signIn";
 import LandingPageHeader from "./LandingPageHeader";
 import LandingPageFooter from "./LandingPageFooter";
+import { GenerateAIMSToken } from "../../Base/helper/authHelper";
 
 const useStyles = makeStyles((theme) => ({
   mainGrid: {
@@ -14,10 +15,10 @@ const useStyles = makeStyles((theme) => ({
 
 const LandingPage = () => {
   const classes = useStyles();
-
+  GenerateAIMSToken();
   return (
     <>
-    <LandingPageHeader />
+      <LandingPageHeader />
       <Container maxWidth="lg">
         <Grid
           container
@@ -26,20 +27,18 @@ const LandingPage = () => {
           alignItems="center"
           className={classes.mainGrid}
         >
-          
           <Grid item xs={12} md={8}>
             <h1 style={{ margin: "0", fontSize: "175px", fontWeight: "300" }}>
-              AIMS              
+              AIMS
             </h1>
             <h4 style={{ margin: "0", fontSize: "25px", fontWeight: "300" }}>
-                Analytical Intuitive Management System
-              </h4>
+              Analytical Intuitive Management System
+            </h4>
           </Grid>
           <Grid item xs={12} md={4}>
             <SignIn></SignIn>
           </Grid>
         </Grid>
-        
       </Container>
       <LandingPageFooter />
     </>
