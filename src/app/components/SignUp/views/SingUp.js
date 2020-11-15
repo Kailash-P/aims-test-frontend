@@ -13,6 +13,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import LandingPageHeader from "../../LandingPage/views/LandingPageHeader";
 import LandingPageFooter from "../../LandingPage/views/LandingPageFooter";
+import SelectableSearch from "../../Base/views/SelectableSearch";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -46,6 +47,27 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp() {
   const classes = useStyles();
 
+  const [countryID, setCountryID] = React.useState(0);
+
+  const [stateID, setStateID] = React.useState(0);
+
+  // eslint-disable-next-line
+  const [cityID, setCityID] = React.useState(0);
+
+
+  const handleCountryChange = (event,value) => {
+    setCountryID(value ? value.country_id:"");
+   };
+
+   const handleStateChange = (event,value) => {
+    setStateID( value ? value.state_id:"");
+   };
+
+   const handleCityChange = (event,value) => {
+    setCityID(value ? value.city_id:"");
+   };
+
+   
   return (
     <React.Fragment>
       <LandingPageHeader />
@@ -143,41 +165,44 @@ export default function SignUp() {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    name="country"
-                    label="Country"
-                    type="country"
-                    id="country"
-                    autoComplete="country"
-                  />
+                <SelectableSearch 
+                required
+                name="country"
+                label="Country"
+                selectValue="country_name"
+                selectId="country_id"
+                id="country"
+                url="/common/GetCountries"
+                onChangeEvent={handleCountryChange}
+                >
+                </SelectableSearch>
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    name="state"
-                    label="State"
-                    type="state"
-                    id="state"
-                    autoComplete="state"
-                  />
+                <SelectableSearch
+                required
+                name="state"
+                label="State"
+                selectValue="state_name"
+                selectId="state_id"
+                id="state"
+                url="/common/GetStates"
+                onChangeEvent={handleStateChange}
+                params= {{'country_id':countryID}}
+                ></SelectableSearch>
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    name="city"
-                    label="City"
-                    type="city"
-                    id="city"
-                    autoComplete="city"
-                  />
-                </Grid>
+                <SelectableSearch
+                required
+                name="city"
+                label="City"
+                selectValue="city_name"
+                selectId="city_id"
+                id="city"
+                url="/common/GetCities"
+                onChangeEvent={handleCityChange}
+                params= {{'state_id':stateID}}
+                ></SelectableSearch>
+                </Grid>           
                 <Grid item xs={12}>
                   <TextField
                     variant="outlined"
